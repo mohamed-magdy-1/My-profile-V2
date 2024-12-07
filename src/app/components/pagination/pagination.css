@@ -1,0 +1,28 @@
+
+
+.Pagination{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Pagination ul{
+    display: flex;
+    gap: 10px;
+}
+
+.Pagination ul li{
+    list-style: none;
+    border: 1px solid #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #000000;
+}

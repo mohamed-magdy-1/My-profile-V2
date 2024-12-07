@@ -1,0 +1,45 @@
+
+.header{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    z-index: 55;
+}
+
+.header a{
+    cursor: pointer;
+}
+.header img{
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+.title {
+    position: relative;
+}
+
+.title h2 {
+    text-transform: uppercase;
+}
+.title .line-1{
+    width: 103px;
+    position: absolute;
+    right: 0;
+    display: block;
+    height: 2px;
+    background-color: white;
+}
+.title .line-2{
+    width: 115px;
+    position: absolute;
+    right: 0;
+    top: 36px;
+    display: block;
+    height: 2px;
+    background-color:var(--min-color);
+    box-shadow: 0px 0px 5px 2px var(--min-color);
+}
