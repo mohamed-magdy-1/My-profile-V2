@@ -38,7 +38,7 @@ const Blog = () => {
         </div>
         more
       </Link>
-      <div className="blog">
+      <div className="allBlog">
         {data?.map((item) => (
           <Link key={item.id} className="blog-card" href={`/blog/${item?.slug}`}>
             <div className="blog-img">

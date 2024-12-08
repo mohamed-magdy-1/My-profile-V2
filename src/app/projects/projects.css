@@ -149,7 +149,7 @@ display: flex;
     box-shadow: 0 0 5px 1px var(--min-color);
 }
 .icons .blog{
-    width: 100px;
+    width: fit-content;
     height: 31px;
     background-color: black;
     display: flex;
@@ -276,3 +276,14 @@ top: 0;
 }
 
 
+
+
+@media (max-width:320px){
+    .card-project .project-title {
+        font-size: 25px;
+    }
+    .card-project .project-des{
+        text-align: start;
+        font-size: 16px;
+    }
+}

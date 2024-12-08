@@ -15,8 +15,6 @@
     height: 50%;
     display: flex;
     position: relative;
-
-    overflow: hidden;
     align-items: center;
     justify-content: center;
 }
@@ -63,7 +61,7 @@
 
 @media (max-width:666px) {
     .home {
-        margin-top: 35px;
+        margin-top: 125px;
     }
     .home .my-photo {
         height: 40%;
@@ -71,5 +69,39 @@
     .about-my p{
         margin-top: 20px;
         width:90%;
+    }
+}
+
+
+@media (max-width:400px) {
+    .home .my-photo .img-1 {
+        height: 215px !important;
+        width: 215px !important;
+    }
+    .home .my-photo .img-2 {
+        height: 245px !important;
+        width: 245px !important;
+    }
+
+    .about-my h1 {
+        font-size: 35px;
+    }
+
+    .about-my p {
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width:330px) {
+    .home {
+        margin-top:50px;
+    }
+
+    .about-my h1 {
+        font-size: 25px;
+    }
+    .about-my h3 {
+        font-size: 13px;
     }
 }

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@lordicon/react": "^1.10.1",
     "@lottiefiles/lottie-player": "^2.0.12",
     "axios": "^1.7.7",
     "lord-icon-element": "^4.1.2",

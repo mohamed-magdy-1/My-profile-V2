@@ -47,6 +47,7 @@ export default function Home() {
             style={{
               width: "320px",
             }}
+            className="hello"
             autoplay
             loop
             src="/icons/Animation-hello.json"
