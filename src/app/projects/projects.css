@@ -287,3 +287,15 @@ top: 0;
         font-size: 16px;
     }
 }
+
+
+
+/* height */
+
+
+@media (max-height:600px) {
+    .projects {
+        height: 70%;
+    }   
+
+}

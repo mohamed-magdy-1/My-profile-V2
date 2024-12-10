@@ -2,7 +2,6 @@
 
 .contact{
     width: 60%;
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,8 +14,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 6px;
 }
 
@@ -126,4 +123,31 @@ height: 50px !important;
         width: 90% !important;
     }
     
+}
+
+
+/* height */
+
+
+@media (max-height:600px) {
+    .contact textarea {
+        height: 100px;
+    }
+
+    .contact input {
+        height: 30px;
+    }
+
+    .SocialMedia {
+        height: 30px;
+    }
+
+    
+
+    .SocialMedia img {
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+
 }

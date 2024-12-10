@@ -246,3 +246,28 @@
     }
 
 }
+
+
+
+
+/* height */
+
+
+@media (max-height:600px) {
+    .about .content-about {
+        width: 75% ;
+        text-align: justify ;
+        font-size: 22px ;
+        display: flex ;
+        gap: 8px ;
+        align-items: center;
+    }
+
+    .about .about-sc video {
+        width: 300px;
+    }
+    .about .img-container img {
+        width: 200px !important;
+        height: 140px !important;
+    }    
+}

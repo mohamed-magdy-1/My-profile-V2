@@ -290,6 +290,9 @@
 
 
 @media (max-width:640px) {
+    .allBlog {
+        padding-top: 25px;
+    }
     .allBlog .blog-card .blog-img{
         position: absolute;
         left: 0 !important ;
@@ -301,4 +304,94 @@
         width: 100% !important;
         background-color: rgba(0, 0, 0, 0.463);
     }
+}
+
+
+
+/* height */
+
+
+@media (max-height:600px) {
+    .allBlog {
+        overflow-y: auto;
+        padding-top: 20px;
+    }
+    .allBlog .blog-card{
+        width: 75% ;
+        height: 65% !important;
+        display: flex !important;
+        margin-bottom: 20px !important;
+        margin-top: 50px;
+
+    }
+
+
+    .allBlog .blog-card .blog-img{
+        width: 50% ;
+        height: 100% !important;
+        
+    } 
+    
+    .allBlog .blog-card .blog-img img{
+        width: 100% !important;
+        height: 100% !important;
+        object-position: left;
+    } 
+    
+
+    .allBlog .blog-card .blog-content{
+        width: 50%;
+        height: 100%;
+        padding: 0 12px;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .allBlog .blog-card .blog-date{
+        text-align: end;
+        color: #ffff;
+        position: absolute;
+        top: 6px;
+        left: 5px;
+    }
+
+    .allBlog .blog-card .line-2{
+        width: 100%;
+        position: absolute;
+        top: 25px;
+        display: block;
+        height: 2px;
+        background-color: var(--min-color);
+        box-shadow: 0px 0px 5px 2px var(--min-color);
+    }
+    
+    .allBlog .blog-card .icons{
+        width: 111px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        position: static !important;
+        margin-top: -6px;
+        margin-bottom: 25px;
+    }
+    
+
+
+    .allBlog .blog-card .blog-des{
+        text-align: justify;
+        color: white;
+        font-size: 20px;
+        font-family: system-ui;
+        display: -webkit-box; 
+        -webkit-box-orient: vertical; 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        -webkit-line-clamp: 5; 
+    }
+    
+
 }

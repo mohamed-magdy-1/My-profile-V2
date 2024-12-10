@@ -105,3 +105,23 @@
         font-size: 13px;
     }
 }
+
+
+/* height */
+
+
+@media (max-height:600px) {
+    .home .my-photo .img-1 {
+        height: 200px !important;
+        width: 200px !important;
+    }
+
+    .home .my-photo .img-2 {
+        height: 235px !important;
+        width: 235px !important;
+    }
+    .home .my-photo {
+        height: 25% !important;
+        margin-bottom: 44px !important;
+    }
+}
