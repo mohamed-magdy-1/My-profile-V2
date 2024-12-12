@@ -58,11 +58,11 @@ export default function Projects() {
 
   return (
     <>
-          <Link href={'/projects/AllProjects'} className='more' >
+          <Link  href={'/projects/AllProjects'} className='more' >
             <div className='plus'>
             <PiPlusBold />
             </div>
-      more
+      more projects
       </Link>
     <div className="projects">
       <Swiper

@@ -36,7 +36,7 @@ const Blog = () => {
         <div className='plus'>
           <PiPlusBold />
         </div>
-        more
+        more blogs
       </Link>
       <div className="allBlog">
         {data?.map((item) => (
