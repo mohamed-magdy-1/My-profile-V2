@@ -62,7 +62,8 @@ export default function Projects() {
             <div className='plus'>
             <PiPlusBold />
             </div>
-      more projects
+            <div className='content-more'>more projects</div>
+      
       </Link>
     <div className="projects">
       <Swiper

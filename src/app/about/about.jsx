@@ -74,12 +74,15 @@ return (
             return (
                 <SwiperSlide className="about-sc" key={slider.id}>
                     <div className="title-about">{slider.title}</div>
-                <div
-                    className="content-about"
-                    dangerouslySetInnerHTML={{
-                        __html: slider?.content_about,
-                    }}
-                    />
+                    {
+                        slider?.content_about &&
+                        <div
+                        className="content-about"
+                        dangerouslySetInnerHTML={{
+                            __html: slider?.content_about,
+                        }}
+                        />
+                    }
                     <div className="img-container">
                     {slider?.my_images?.map((img, i) => {
                         return (

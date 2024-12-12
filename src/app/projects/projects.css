@@ -221,7 +221,13 @@ top: 0;
 }
 
 .more:hover{
-    width: 100px;
+    width: 180px;
+    padding: 0 10px 0 0;
+}
+
+.more .content-more{
+    width: 200px;
+    position: absolute;
 }
 
 .more .plus{

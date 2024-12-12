@@ -32,11 +32,11 @@ const Blog = () => {
 
   return (
     <>
-      <Link href={'/blog/allBlogs'} className='more'>
-        <div className='plus'>
-          <PiPlusBold />
-        </div>
-        more blogs
+      <Link  href={'/projects/AllProjects'} className='more' >
+            <div className='plus'>
+            <PiPlusBold />
+            </div>
+            <div className='content-more'>more blogs</div>
       </Link>
       <div className="allBlog">
         {data?.map((item) => (
