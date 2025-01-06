@@ -7,8 +7,11 @@ import React, { useEffect, useState } from 'react';
 import './allBlogs.css';
 import Link from 'next/link';
 import Image from 'next/image';
+import DOMPurify from 'dompurify';
+import dynamic from 'next/dynamic';
 
-
+const LordIconDocument = dynamic(() => import('../../components/LordIcon/LordIcon').then((mod) => mod.LordIconDocument), { ssr: false });
+const LordIconGlobe = dynamic(() => import('../../components/LordIcon/LordIcon').then((mod) => mod.LordIconGlobe), { ssr: false });
 
 export default function AllBlogs() {
   const [data, setData] = useState(null);
@@ -17,18 +20,7 @@ export default function AllBlogs() {
 
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      import('lottie-web').then(lottie => {
-        import('lord-icon-element').then(({ defineElement }) => {
-          defineElement(lottie.loadAnimation);
-        });
-      });
-    }
-  }, []);
-
-
-  useEffect(() => {
-    async function fetchBlogs() {
+    async function AllBlogsBlogs() {
       try {
         const res = await GlobalApi.AllBlogsApi(pageIndex);
         if (res?.data) {
@@ -39,8 +31,12 @@ export default function AllBlogs() {
         console.log(err);
       }
     }
-    fetchBlogs();
+    AllBlogsBlogs();
   }, [pageIndex]);
+
+
+
+
 
   return (
     <>
@@ -54,9 +50,10 @@ export default function AllBlogs() {
                   className="img-1"
                   src={process.env.NEXT_PUBLIC_IMG_URL + item?.cover[0]?.url}
                   alt="Background Image"
-                  layout="fill"
+                  width={400}
+                  height={300}
+                  loading="lazy"
                   quality={75}
-                  priority
                 />
               )}
             </div>
@@ -67,25 +64,14 @@ export default function AllBlogs() {
               </h4>
               <div className="icons">
                 {item?.project?.wap && (
-                    <lord-icon
-                    className="icon"
-                      src="/icons/globe.json"
-                      trigger="loop"
-                      delay="2000"
-                      style={{width:"50px",height:"50px"}}
-                    ></lord-icon>
+                    <LordIconGlobe/>
                 )}
-                <lord-icon
-                  src="/icons/document.json"
-                  trigger="loop"
-                  delay="2000"
-                  style={{ width: "50px", height: "50px" }}
-                ></lord-icon>
+                  <LordIconDocument/>
               </div>
               <h1 className="allBlogs-title">{item?.title}</h1>
               <p
                 className="allBlogs-des"
-                dangerouslySetInnerHTML={{ __html: item?.project?.des }}
+                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.project?.des)  }}
               ></p>
             </div>
           </Link>

@@ -1,12 +1,6 @@
 
 "use client"
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import '../slider/slider.css';
 import './about.css';
 
 // import required modules
@@ -14,21 +8,26 @@ import { Pagination } from 'swiper/modules';
 import GlobalApi from '../_utils/GlobalApi';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { loadGetInitialProps } from 'next/dist/shared/lib/utils';
-import { IoIosArrowBack ,IoIosArrowForward ,IoMdCloseCircleOutline } from "react-icons/io";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import DOMPurify from 'dompurify';
+
+import ImgISliderAbout from '../components/imgISliderAbout/imgISliderAbout';
+
+
 
 export default function About() {
 
+
 const [open,setOpen] = useState(false)
-const [arrayBigImg,setArrayBigImg] = useState([])
 const [imgIndex,setImgIndex] = useState(0)
+
 const [data,setData] = useState(null)
 
     useEffect(()=>{
         try{
             async function AboutFunApi() {
                 let res = await GlobalApi.AboutApi()
-                setData(res)
+                setData(res.data)
             }
             AboutFunApi()
         }catch(err){
@@ -37,24 +36,11 @@ const [data,setData] = useState(null)
     },[])
 
 
-    useEffect(()=>{
-        function arrayAllBigImg(){
-                    data?.all_about.map((el)=>{
-            if(el?.my_images){
-                    setArrayBigImg(el?.my_images)
-            }
-        })
-        }
-        arrayAllBigImg()
-    },[data])
+
+    
 
 
-    function prevImg(){
-        setImgIndex(imgIndex == 0 ? arrayBigImg.length - 1 : imgIndex - 1)
-    }
-    function nextImg(){
-        setImgIndex(imgIndex == arrayBigImg.length - 1 ? 0 : imgIndex + 1  )
-    }
+
 
 
 return (
@@ -79,7 +65,7 @@ return (
                         <div
                         className="content-about"
                         dangerouslySetInnerHTML={{
-                            __html: slider?.content_about,
+                            __html: DOMPurify.sanitize(slider?.content_about) 
                         }}
                         />
                     }
@@ -95,35 +81,20 @@ return (
                             className="img-1"
                             src={process.env.NEXT_PUBLIC_IMG_URL+img.url}
                             alt="Background Image"
-                            layout="fill"
-                            quality={75}
-                            priority
+                            width={400}
+                            height={300}
+                            loading="lazy"
                         />
                         );
                     })}
                 </div>
 
-                <div
-                    className="big-img"
-                    style={{ display: open ? "flex" : "none" }}
-                >
-                    <div className='Close' onClick={()=>setOpen(false)}><IoMdCloseCircleOutline/> </div>
-                    {arrayBigImg[imgIndex]?.url !== undefined && (
-                    <Image
-                        className="img-1"
-                        src={`${process.env.NEXT_PUBLIC_IMG_URL+arrayBigImg[imgIndex]?.url}`}
-                        alt={"bigImg"}
-                        layout="fill"
-                        quality={75}
-                        priority
-                        />
-                    )}
-                    <div className='arrows'>
-                    <button onClick={()=> prevImg()}><IoIosArrowBack/></button>
-                    <button onClick={()=> nextImg()}><IoIosArrowForward/></button>
-                    </div>
-
-                    </div>
+                <ImgISliderAbout 
+                data={data} 
+                imgIndex={imgIndex} 
+                setImgIndex={setImgIndex} 
+                open={open} 
+                setOpen={setOpen}/>
                 </SwiperSlide>
                 );
             }

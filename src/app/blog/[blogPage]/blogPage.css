@@ -12,8 +12,10 @@
 }
 
 .BlogPage_Image img {
+    width: 100% !important;
+    height: 400px !important;
     position: static !important;
-    object-fit: cover;
+    object-fit: cover !important;
     object-position: top;
     border-radius: 5px;
     -webkit-border-radius: 5px;

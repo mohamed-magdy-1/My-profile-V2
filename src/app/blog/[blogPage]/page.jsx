@@ -7,21 +7,16 @@ import "./blogPage.css";
 import Link from "next/link";
 import Image from "next/image";
 import { useParams } from "next/navigation";
+import DOMPurify from 'dompurify';
+import dynamic from 'next/dynamic';
 
-
+const LordIconDocument = dynamic(() => import('../../components/LordIcon/LordIcon').then((mod) => mod.LordIconDocument), { ssr: false });
+const LordIconGlobe = dynamic(() => import('../../components/LordIcon/LordIcon').then((mod) => mod.LordIconGlobe), { ssr: false });
 
 export default function BlogPage() {
   let { blogPage } = useParams();
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      import('lottie-web').then(lottie => {
-        import('lord-icon-element').then(({ defineElement }) => {
-          defineElement(lottie.loadAnimation);
-        });
-      });
-    }
-  }, []);
+
 
 
   const [data, setData] = useState(null);
@@ -30,7 +25,7 @@ export default function BlogPage() {
     try {
       async function BlogPageFunApi() {
         let res = await GlobalApi.BlogPageApi(blogPage);
-        setData(res);
+        setData(res.data);
       }
       BlogPageFunApi();
     } catch (err) {
@@ -44,7 +39,7 @@ export default function BlogPage() {
     try {
       async function ResentFunApi() {
         let res = await GlobalApi.ResentAddBlogApi();
-        setDataResent(res);
+        setDataResent(res.data);
       }
       ResentFunApi();
     } catch (err) {
@@ -67,12 +62,7 @@ export default function BlogPage() {
                 target="_blank"
                 className="wap"
               >
-                <lord-icon
-                  src="/icons/globe.json"
-                  trigger="loop"
-                  delay="2000"
-                  style={{ width: "30px", height: "30px" }}
-                ></lord-icon>
+              <LordIconGlobe/>
                 SEE
               </Link>
             )}
@@ -89,7 +79,8 @@ export default function BlogPage() {
               className="img-1"
               src={process.env.NEXT_PUBLIC_IMG_URL + data?.cover[0]?.url}
               alt="BlogPage Image"
-              layout="fill"
+              width={400}
+              height={300}
               quality={75}
               priority
             />
@@ -97,7 +88,7 @@ export default function BlogPage() {
         </div>
         <div
           className="BlogPage_Content_blog"
-          dangerouslySetInnerHTML={{ __html: data?.content }}
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(data?.content)  }}
         />
       </div>
       <div className="resent-blog">
@@ -105,12 +96,7 @@ export default function BlogPage() {
           <h1 className="title">you can also read the new blogs</h1>
 
           <Link href={`/blog/allBlogs`} className="blog">
-            <lord-icon
-              src="/icons/document.json"
-              trigger="loop"
-              delay="2000"
-              style={{ width: "30px", height: "30px" }}
-            ></lord-icon>
+          <LordIconDocument/>
             AllBlogs
           </Link>
         </div>

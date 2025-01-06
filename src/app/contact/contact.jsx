@@ -14,6 +14,7 @@ let [number,setNumber] = useState('')
 let [email,setEmail] = useState('')
 let [textarea,setTextarea] = useState('')
 let [message,setMessage] = useState('')
+let [errorMessage,setErrorMessage] = useState('')
 
 
 const handleSubmit = async (e) => {
@@ -37,7 +38,8 @@ const handleSubmit = async (e) => {
         setTextarea('')
         setMessage('message submitted successfully!');
     } catch (error) {
-        setMessage('Failed to submit the message. Please try again.');
+        console.log(error)
+        setErrorMessage('Failed to submit the message. Please try again.');
     }
 };
 
@@ -49,7 +51,7 @@ useEffect(()=>{
     try{
         async function SocialMediaFunApi() {
             let res = await GlobalApi.SocialMediaApi()
-            setData(res)
+            setData(res.data)
         }
         SocialMediaFunApi()
     }catch(err){
@@ -118,10 +120,14 @@ return (
             </div>
         </form>
         {
-            message && 
+            message ?
                     <div className="message">
                     {message}
-                </div>
+                </div> :
+                errorMessage ? 
+                <div className="errorMessage">
+                {errorMessage}
+            </div>  : ""
         }
 
     </div>

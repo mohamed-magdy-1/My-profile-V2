@@ -146,6 +146,11 @@
     margin-bottom: 5px;
 }
 
+.allBlogs .lord-icon{
+    width: 50px !important;
+    height: 50px !important;
+    }
+    
 
 /* end first-child  */
 

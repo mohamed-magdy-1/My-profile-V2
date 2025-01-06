@@ -98,6 +98,21 @@ color: white;
     -o-border-radius: 5px;
 }
 
+.errorMessage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px rgb(255, 0, 0) solid;
+    height: 45px;
+    margin-top: 20px;
+    width: fit-content !important;
+    padding: 0 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
 
 /* SocialMedia */
 .SocialMedia{

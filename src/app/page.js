@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <div>
-      <Loading/>
+      {/* <Loading/> */}
       <Slider />
     </div>
   );

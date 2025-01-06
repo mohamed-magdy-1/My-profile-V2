@@ -1,34 +1,36 @@
-"use client"
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+"use client";
 
-// Import Swiper styles
+import dynamic from 'next/dynamic';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import './slider.css';
-
-// import required modules
 import { Pagination } from 'swiper/modules';
 import Header from '../components/header/header';
-import { useEffect, useState } from 'react';
-import Home from '../home/home';
-import About from '../about/about';
-import Projects from '../projects/projects';
-import Blog from '../blog/blog';
-import Contact from '../contact/contact';
+import { useEffect, useState, useMemo } from 'react';
+
+const DynamicHome = dynamic(() => import('../home/home'), { ssr: false });
+const DynamicAbout = dynamic(() => import('../about/about'), { ssr: false });
+const DynamicProjects = dynamic(() => import('../projects/projects'), { ssr: false });
+const DynamicBlog = dynamic(() => import('../blog/page'), { ssr: false });
+const DynamicContact = dynamic(() => import('../contact/contact'), { ssr: false });
 
 export default function Slider() {
-    let [currentIndex,setCurrentIndex]= useState(0)
-    let textContent = ['home','about','projects','blog','Contact']
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const textContent = ['home', 'about', 'projects', 'blog', 'contact'];
 
-    const pagination = {
+
+    const pagination = useMemo(() => ({
         clickable: true,
-        renderBullet: function (index, className) {
-            
-            return '<span class="' + className + '">' + textContent[index] + '</span>';
-            
+        renderBullet: (index, className) => {
+            return `<span class="${className}">${textContent[index]}</span>`;
         },
-    };
+    }), []);
+
+
+
+
+
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -44,42 +46,29 @@ const handleSlideChange = (swiper)=>{
 }
 const handleInit = (swiper)=>{
     swiper.slideTo(localStorage.getItem("prevIndex"))
+    
 }
 
 
-
-
-
-
-return (
-    <>
-    <Header title={textContent[currentIndex]}/>
-    <Swiper
-        slidesPerView={1}
-        spaceBetween={0}
-        onInit={handleInit}
-        onSlideChange={handleSlideChange}
-        loop={true}
-        pagination={pagination}
-        modules={[Pagination]}
-        className="mySwiper"
-    >
-        <SwiperSlide><Home/></SwiperSlide>
-        <SwiperSlide>
-
-            <About/>
-
-        </SwiperSlide>
-        <SwiperSlide>
-            <Projects/>
-        </SwiperSlide>
-        <SwiperSlide>
-            <Blog/>
-        </SwiperSlide>
-        <SwiperSlide>
-            <Contact/>
-        </SwiperSlide>
-    </Swiper>
-    </>
-);
+    return (
+        <>
+            <Header title={textContent[currentIndex]} />
+            <Swiper
+                slidesPerView={1}
+                spaceBetween={0}
+                onInit={handleInit}
+                onSlideChange={handleSlideChange}
+                loop={true}
+                pagination={pagination}
+                modules={[Pagination]}
+                className="mySwiper"
+            >
+                <SwiperSlide><DynamicHome /></SwiperSlide>
+                <SwiperSlide><DynamicAbout /></SwiperSlide>
+                <SwiperSlide><DynamicProjects /></SwiperSlide>
+                <SwiperSlide><DynamicBlog /></SwiperSlide> 
+                <SwiperSlide><DynamicContact /></SwiperSlide> 
+            </Swiper>
+        </>
+    );
 }

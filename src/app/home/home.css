@@ -55,8 +55,9 @@
 }
 
 .about-my p{
-    text-align: justify;
+    text-align: center;
     width: 60%;
+    margin-top: 15px;
 }
 
 @media (max-width:666px) {

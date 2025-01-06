@@ -1,3 +1,4 @@
+"use client"
 import GlobalApi from "@/app/_utils/GlobalApi"
 import Image from "next/image"
 import { useEffect, useState } from "react"
@@ -13,7 +14,7 @@ export default function Header({title}) {
         try{
             async function headerFunApi() {
                 let res = await GlobalApi.HeaderApi()
-                setData(res)
+                setData(res.data)
             }
             headerFunApi()
         }catch(err){
@@ -28,13 +29,11 @@ return (
             data?.logo.url &&
             <Image
             src={process.env.NEXT_PUBLIC_IMG_URL+data?.logo.url}
-            width={250}
-            height={250}
-            quality={75} 
-            priority  
-            alt="logo"
-      
-          />
+            alt="Logo"
+            width={800}
+            height={600}
+            priority 
+        />
         }
 
         </Link>
