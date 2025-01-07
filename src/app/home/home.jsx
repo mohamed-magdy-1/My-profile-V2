@@ -39,7 +39,7 @@ return (
                 data?.my_photo?.url &&
                 <Image 
                 className="img-1"
-                      src={process.env.NEXT_PUBLIC_IMG_URL+data?.my_photo?.url} 
+                      src={data?.my_photo?.url} 
                       alt="Background Image" 
                         width={800}
                         height={600}
@@ -53,7 +53,7 @@ return (
                 data?.cover?.url && 
                 <Image 
                 className="img-2"
-                    src={process.env.NEXT_PUBLIC_IMG_URL+data?.cover?.url} 
+                    src={data?.cover?.url} 
                     alt="Background  Image sun" 
                     quality={75} 
                     width={800}

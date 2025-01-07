@@ -69,7 +69,7 @@ return (
                     {
                     item?.SocialMediaImg[0]?.url &&
                         <Image 
-                            src={process.env.NEXT_PUBLIC_IMG_URL+item?.SocialMediaImg[0]?.url} 
+                            src={item?.SocialMediaImg[0]?.url} 
                             alt="Background Image" 
                             layout="fill" 
                             quality={75} 

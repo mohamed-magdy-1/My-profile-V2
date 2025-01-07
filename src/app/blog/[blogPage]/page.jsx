@@ -77,7 +77,7 @@ export default function BlogPage() {
           {data?.cover[0]?.url && (
             <Image
               className="img-1"
-              src={process.env.NEXT_PUBLIC_IMG_URL + data?.cover[0]?.url}
+              src={data?.cover[0]?.url}
               alt="BlogPage Image"
               width={400}
               height={300}

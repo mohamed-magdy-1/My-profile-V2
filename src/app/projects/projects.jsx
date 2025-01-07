@@ -61,7 +61,7 @@ export default function Projects() {
                 <div className="projectBigImg">
                   <Image
                     className="img-1"
-                    src={process.env.NEXT_PUBLIC_IMG_URL + `${el?.projectImg.url}`}
+                    src={`${el?.projectImg.url}`}
                     alt="projectBigImg"
                     width={400}
                     height={300}

@@ -39,7 +39,7 @@ const [arrayBigImg,setArrayBigImg] = useState([])
     {arrayBigImg[imgIndex]?.url !== undefined && (
     <Image
         className="img-1"
-        src={`${process.env.NEXT_PUBLIC_IMG_URL+arrayBigImg[imgIndex]?.url}`}
+        src={`${arrayBigImg[imgIndex]?.url}`}
         alt={"bigImg"}
         width={400}
         height={300}

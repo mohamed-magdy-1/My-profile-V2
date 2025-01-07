@@ -52,7 +52,7 @@ const Blog = () => {
                 {item?.cover[0]?.url && (
                   <Image
                     className="img-1"
-                    src={`${process.env.NEXT_PUBLIC_IMG_URL}${item?.cover[0]?.url}`}
+                    src={`${item?.cover[0]?.url}`}
                     alt="Background Image"
                     width={400}
                     height={300}

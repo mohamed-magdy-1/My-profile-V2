@@ -57,7 +57,7 @@ export default function AllProjects() {
    item?.projectImg?.url &&
    <Image
    className="img-1"
-         src={process.env.NEXT_PUBLIC_IMG_URL+item?.projectImg?.url} 
+         src={item?.projectImg?.url} 
          alt="Background Image" 
          layout="fill" 
          quality={75} 

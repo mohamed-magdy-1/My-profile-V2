@@ -28,7 +28,7 @@ return (
         {
             data?.logo.url &&
             <Image
-            src={process.env.NEXT_PUBLIC_IMG_URL+data?.logo.url}
+            src={data?.logo.url}
             alt="Logo"
             width={800}
             height={600}

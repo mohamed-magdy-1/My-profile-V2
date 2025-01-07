@@ -5,8 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'strapimyprofilev2-production.up.railway.app',
-        pathname: '/**',
+        hostname: 'res.cloudinary.com',
       },
     ],
   },

@@ -79,7 +79,7 @@ return (
                             }}
                             key={img.id}
                             className="img-1"
-                            src={process.env.NEXT_PUBLIC_IMG_URL+img.url}
+                            src={img.url}
                             alt="Background Image"
                             width={400}
                             height={300}

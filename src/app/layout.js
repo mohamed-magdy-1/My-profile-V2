@@ -38,7 +38,7 @@ export default async function RootLayout({ children }) {
             <html lang="en">
               <body className={`${Orbitron.variable}`} 
               style={{
-                backgroundImage: `url(${process.env.NEXT_PUBLIC_IMG_URL+data?.data.backgroundImg.url})` ,
+                backgroundImage: `url(${data?.data.backgroundImg.url})` ,
                 objectFit:data.data?.object_fit ? "cover" : "none"
                 }}>
                 {children}
@@ -51,6 +51,7 @@ export default async function RootLayout({ children }) {
       return (
         <html lang="en">
           <body className={`${Orbitron.variable}`} >
+            <div></div>
             {children}
           </body>
         </html>
