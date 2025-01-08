@@ -2,7 +2,7 @@
 
 import GlobalApi from '@/app/_utils/GlobalApi';
 import Header from '@/app/components/header/header';
-import Pagination from '@/app/components/pagination/pagination';
+
 import React, { useEffect, useState } from 'react';
 import './allBlogs.css';
 import Link from 'next/link';
@@ -12,7 +12,7 @@ import dynamic from 'next/dynamic';
 
 const LordIconDocument = dynamic(() => import('../../components/LordIcon/LordIcon').then((mod) => mod.LordIconDocument), { ssr: false });
 const LordIconGlobe = dynamic(() => import('../../components/LordIcon/LordIcon').then((mod) => mod.LordIconGlobe), { ssr: false });
-
+const DynamicPagination = dynamic(() => import('@/app/components/pagination/pagination'), { ssr: false });
 export default function AllBlogs() {
   const [data, setData] = useState(null);
   const [pageCount, setPageCount] = useState();
@@ -77,7 +77,7 @@ export default function AllBlogs() {
           </Link>
         ))}
       </div>
-      <Pagination pageCount={pageCount} pageIndex={pageIndex} setPageIndex={setPageIndex} />
+      <DynamicPagination pageCount={pageCount} pageIndex={pageIndex} setPageIndex={setPageIndex} />
     </>
   );
 }

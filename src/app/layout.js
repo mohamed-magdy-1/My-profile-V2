@@ -25,29 +25,8 @@ export const metadata = {
 export default async function RootLayout({ children }) {
 
 
-    try{
-      
-        let res = await fetch(`${process.env.NEXT_PUBLIC_IMG_URL}/api/background-img?populate=*`,{
-          headers:{
-            Authorization:`Bearer ${process.env.NEXT_TOKEN}`
-          }
-        })
-        const data = await res.json();
-        if(data?.data.backgroundImg.url){
-          return (
-            <html lang="en">
-              <body className={`${Orbitron.variable}`} 
-              style={{
-                backgroundImage: `url(${data?.data.backgroundImg.url})` ,
-                objectFit:data.data?.object_fit ? "cover" : "none"
-                }}>
-                {children}
-              </body>
-            </html>
-          );
-        }
 
-    }catch(err){
+
       return (
         <html lang="en">
           <body className={`${Orbitron.variable}`} >
@@ -56,7 +35,7 @@ export default async function RootLayout({ children }) {
           </body>
         </html>
       );
-    }
+    
 }
 
 

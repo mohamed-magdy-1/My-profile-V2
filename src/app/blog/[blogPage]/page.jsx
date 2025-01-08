@@ -48,6 +48,8 @@ export default function BlogPage() {
   }, []);
 
 
+
+
   return (
     <>
       <Header title={data?.title} />
@@ -81,7 +83,6 @@ export default function BlogPage() {
               alt="BlogPage Image"
               width={400}
               height={300}
-              quality={75}
               priority
             />
           )}
@@ -113,7 +114,7 @@ export default function BlogPage() {
                 {item?.cover[0]?.url && (
                   <Image
                     className="img-1"
-                    src={process.env.NEXT_PUBLIC_IMG_URL + item?.cover[0]?.url}
+                    src={item?.cover[0]?.url}
                     alt="Background Image"
                     layout="fill"
                     quality={75}

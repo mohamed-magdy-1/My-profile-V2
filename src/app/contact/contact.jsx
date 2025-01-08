@@ -65,7 +65,7 @@ return (
         <div className="SocialMedia">
             {
                 data?.map((item)=>(
-                    <Link key={item.id} href={item?.link}  target="_blank">
+                    <Link key={item.id} href={item?.link || '#'}  target="_blank">
                     {
                     item?.SocialMediaImg[0]?.url &&
                         <Image 

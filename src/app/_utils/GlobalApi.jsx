@@ -39,7 +39,6 @@ export const ResentAddBlogApi = () => fetchData("/blogs?populate=*&sort=createdA
 export const BlogPageApi = (slug) => fetchData(`/blogs/${slug}?populate=*`);
 // 
 export const SocialMediaApi = () => fetchData(`/social-medias?populate=*`);
-
 export const contactApi = (data) => sendData(`/contacts`,data);
 
 

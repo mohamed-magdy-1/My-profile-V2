@@ -33,7 +33,6 @@ const Blog = () => {
 
 
 
-
   
   return (
     <>
@@ -52,7 +51,7 @@ const Blog = () => {
                 {item?.cover[0]?.url && (
                   <Image
                     className="img-1"
-                    src={`${item?.cover[0]?.url}`}
+                    src={item?.cover[0]?.url}
                     alt="Background Image"
                     width={400}
                     height={300}

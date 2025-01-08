@@ -12,7 +12,7 @@ import { useEffect, useState, useMemo } from 'react';
 const DynamicHome = dynamic(() => import('../home/home'), { ssr: false });
 const DynamicAbout = dynamic(() => import('../about/about'), { ssr: false });
 const DynamicProjects = dynamic(() => import('../projects/projects'), { ssr: false });
-const DynamicBlog = dynamic(() => import('../blog/page'), { ssr: false });
+const DynamicBlog = dynamic(() => import('../blog/blog'), { ssr: false });
 const DynamicContact = dynamic(() => import('../contact/contact'), { ssr: false });
 
 export default function Slider() {
