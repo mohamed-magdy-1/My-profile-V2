@@ -36,10 +36,10 @@
     height: 50px;
     padding: 5px;
     border-radius: 5px;
-    border: none;
     outline: none;
     color: white !important;
-    background-color: #5d6065 !important;
+    background-color: #1C1C1F ;
+    border: 1px solid #2D2D2F;
 }
 .contact  input::placeholder {
     color: white ;
@@ -50,10 +50,10 @@
     height: 260px;
     padding: 5px;
     border-radius: 5px;
-    border: none;
     outline: none;
     color: white !important;
-    background-color: #5d6065 !important;
+    background-color: #1C1C1F ;
+    border: 1px solid #2D2D2F;
 }
 
 
@@ -66,6 +66,7 @@
     height: 40px;
     border-radius: 5px;
     font-size: 25px;
+    color: #1C1C1F;
     cursor: pointer;
     text-transform: uppercase;
     box-shadow: 0 0 5px 1px var(--min-color);
@@ -78,7 +79,7 @@
 }
 
 .contact button:hover{
-background-color: black;
+background-color: #1C1C1F;
 color: white;
 }
 

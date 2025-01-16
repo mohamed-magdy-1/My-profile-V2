@@ -1,75 +1,158 @@
 
 
-.card-AllProjects{
-    margin-top: 70px;
+.card-AllProjects .cards {
     width: 100%;
-    gap: 10px;
-    min-height: 600px;
     display: flex;
+    padding: 0 20px;
+    gap: 55px 0;
+    align-items: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-
-.card-AllProjects .icon-Globe{
-    width: 50px !important;
-    height: 50px !important;
-    position: absolute !important;
-    top: 5px !important;
-    left: 0 !important;
-    z-index: 55 !important;
-}
-
-.card-AllProjects .card-img-pj{
     position: relative;
-    width: 380px;
-    height: 250px;
-    margin: 0 10px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-top: 110px;
+}
+
+
+
+.card {
+    position: relative;
+    margin: 5px;
+    width: 370px;
+    height: 230px;
+    background-color: #1C1C1F;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #2D2D2F;
+    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.card:hover {
+    transform:scale(1.09) ;
+    -webkit-transform:scale(1.09) ;
+    -moz-transform:scale(1.09) ;
+    -ms-transform:scale(1.09) ;
+    -o-transform:scale(1.09) ;
+}
+
+
+
+
+
+
+
+
+.card .img-1{
+    width: 100% !important;
+    height: 100% !important;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-    transition: 0.5s ease-in-out;
-    -webkit-transition: 0.5s ease-in-out;
-    -moz-transition: 0.5s ease-in-out;
-    -ms-transition: 0.5s ease-in-out;
-    -o-transition: 0.5s ease-in-out;
 }
 
-
-.card-AllProjects .card-img-pj img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    cursor: pointer;
-
-}
-
-.card-AllProjects .card-img-pj:hover{
-    transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    -moz-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    -o-transform: scale(1.05);
-}
-
-.card-AllProjects .card-img-pj .name-card{
-    width: 100%;
-    height: 100%;
+.card .title {
+    background-color: #1C1C1F;
     position: absolute;
+    top: -38px;
+    left: -1px;
+    width: 80%;
+    padding: 4px;
+    border-radius: 5px;
+    text-align: justify;
+    border: 1px solid;
+    border-color: #2D2D2F;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    display: -webkit-box; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    -webkit-line-clamp: 1; 
+}
+
+
+.card .title .icon{
+    width: 55px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0px;
     display: flex;
+}
+
+.card .dots {
+    position: absolute;
+    right: 5px;
+    top: -30px;
+    display: flex;
+}
+
+.card .dots .red {
+    background-color: red;
+    width: 10px;
+    height: 10px;
+    display: block;
+    margin: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 2px red;
+
+}
+
+.card .dots .green {
+    background-color: green;
+    width: 10px;
+    height: 10px;
+    display: block;
+    margin: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 2px green;
+}
+
+.card .dots .orange {
+    background-color: orange;
+    width: 10px;
+    height: 10px;
+    display: block;
+    margin: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 2px orange;
+
+}
+
+.more {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    position: absolute;
+    cursor: pointer;
+    z-index: 99;
+    display: flex;
+    gap: 10px;
     align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    color: white;
-    background-color: #000000b5;
-    backdrop-filter: blur(1px);
-    top: 270px;
+    justify-content: flex-start;
+    top: 105px;
+    left: 35px;
+    border: 0;
+    border-radius: 24px;
+    background: #1c1c1e;
+    color: #ffffff;
+    transition: all 0.3s ease-in-out;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.145), 0 11px 40px 0 rgba(0, 0, 0, 0.25), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    -ms-border-radius: 24px;
+    -o-border-radius: 24px;
     transition: 0.5s ease-in-out;
     -webkit-transition: 0.5s ease-in-out;
     -moz-transition: 0.5s ease-in-out;
@@ -77,13 +160,46 @@
     -o-transition: 0.5s ease-in-out;
 }
 
-.card-AllProjects .card-img-pj:hover .name-card{
-top: 0;
+.more:hover {
+    width: 180px;
+    padding: 0 10px 0 0;
 }
 
-.card-AllProjects .icon{
+.more .content-more {
+    width: 200px;
     position: absolute;
-    z-index: 998;
-    top: 3px;
-    left: 1px;
+}
+
+.more .plus {
+    margin-top: 4px;
+    margin-left: 6px;
+}
+
+
+
+@media (max-width:1277px) {
+    .card {
+        width: 45%;
+    }
+}
+
+@media (max-width:845px) {
+
+
+    .cards .Instructions{
+        width: 90%;
+    }
+    
+    .card .dots {
+        right: 10px;
+        top: -32px;
+    }
+}
+@media (max-width:770px) {
+    
+.card{
+ width: 90%;
+ 
+}
+
 }

@@ -31,9 +31,6 @@ const [data,setData] = useState(null)
 
 return (
     <div className="home">
-
-
-
         <div className="my-photo">
             {
                 data?.my_photo?.url &&

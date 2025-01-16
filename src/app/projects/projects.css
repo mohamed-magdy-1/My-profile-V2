@@ -1,196 +1,168 @@
 
-.projects {
-    width: 85%;
-    height: 500px;
-    border: 1px solid var(--min-color);
-    box-shadow: 0 0 7px 0px var(--min-color);
-    background-image: radial-gradient(circle, var(--min-color) 1px, transparent 1px);
-background-size: 10px 10px; 
-border-radius: 10px;
-z-index: -2; 
+
+.cards {
+    width: 100%;
+    display: flex;
+    padding: 0 20px;
+    gap: 55px 0;
+    height: 85vh;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
     position: relative;
+overflow-y: auto;
+}
+
+
+
+.cards .card {
+    position: relative;
+    margin: 5px;
+    width: 450px;
+    height: 230px;
+    background-color: #1C1C1F;
+    border-radius: 6px;
     cursor: pointer;
+    border: 1px solid #2D2D2F;
+    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.cards .card:hover {
+    transform:scale(1.09) ;
+    -webkit-transform:scale(1.09) ;
+    -moz-transform:scale(1.09) ;
+    -ms-transform:scale(1.09) ;
+    -o-transform:scale(1.09) ;
+}
+
+
+
+
+
+
+.cards .Instructions{
+    width: 100%;
+    background-color: #1C1C1F;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+
+.cards .Instructions .dots{
+    display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 10px;
+}
+
+
+
+
+
+
+
+
+
+.cards .card .img-1{
+
     border-radius: 5px;
-    overflow: hidden;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
 
-
-
-.projects::before {
-    content: "";
-    width: 100%;
-    height: 100%;
+.cards .card .title {
+    background-color: #1C1C1F;
     position: absolute;
-    top: 0;
-    left: 20%;
-    right: 10%;
-    bottom: 10%;
-    background: radial-gradient(circle, var(--minor-color), transparent 70%);
-    border-radius: 10px;
-    z-index: 1; /* ضمان أن النقاط في الطبقة السفلى */
-  }
-
-
-
-.projects_Swiper{
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100% !important;
+    top: -38px;
+    left: -1px;
+    width: 80%;
+    padding: 4px;
+    border-radius: 5px;
+    text-align: justify;
+    border: 1px solid;
+    border-color: #2D2D2F;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    display: -webkit-box; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    -webkit-line-clamp: 1; 
 }
 
 
-.card-project{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.card-project .projectBigImg{
-    position: absolute;
-    left: 0;
-    z-index: 55;
-    width: 50%;
-    height: 100%;
-    transition: 0.5s ease-in-out;
-    -webkit-transition: 0.5s ease-in-out;
-    -moz-transition: 0.5s ease-in-out;
-    -ms-transition: 0.5s ease-in-out;
-    -o-transition: 0.5s ease-in-out;
-}
-.card-project .projectBigImg img{
-width: 100%;
-clip-path: polygon(0 0, 60% 0, 100% 100%, 0 100%);
-transition: 0.5s ease-in-out;
--webkit-transition: 0.5s ease-in-out;
--moz-transition: 0.5s ease-in-out;
--ms-transition: 0.5s ease-in-out;
--o-transition: 0.5s ease-in-out;
-}
-
-.projects:hover  .card-project .projectBigImg ,
-.projects:hover  .card-project .projectBigImg img {
-    width: 100%;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-}
-
-.card-project .projectContent{
-    position: absolute;
-    top: -20px;
-    right: 30px;
-width: 50%;
-height: 100%;
-display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-
-.card-project .project-old_date{
-    position: absolute;
-    top: 20px;
-    right: -18px;
-}
-
-.card-project .project-old_date .line-2{
-    width: 100%;
+.cards .card .title .icon{
+    width: 55px;
+    height: 30px;
     position: absolute;
     right: 0;
-    top: 24px;
-    display: block;
-    height: 2px;
-    background-color: var(--min-color);
-    box-shadow: 0px 0px 5px 2px var(--min-color);
-}
-
-.card-project .project-title{
-    font-size: 39px;
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-.card-project .project-des{
-    text-align: justify;
-    font-size: 20px;
-    padding: 0 10px 0 0;
-    font-family: system-ui;
-    display: -webkit-box; /* استخدام الصندوق المرن */
-    -webkit-box-orient: vertical; /* توجيه النص عمودياً */
-    overflow: hidden; /* إخفاء النص الزائد */
-    text-overflow: ellipsis; /* إضافة النقاط (...) */
-    -webkit-line-clamp: 5; /* تحديد عدد الأسطر المراد عرضها */ /* ارتفاع السطر */
-}
-
-.icons{
+    top: 0px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 25px;
+    justify-content: flex-end;
 }
 
-.icons .wap{
-    width: 80px;
-    height: 31px;
-    background-color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1px 4px;
-    border-radius: 4px;
-    box-shadow: 0 0 5px 1px var(--min-color);
-}
-.icons .blog{
-    width: fit-content;
-    height: 31px;
-    background-color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1px 4px;
-    border-radius: 4px;
-    box-shadow: 0 0 5px 1px var(--min-color);
-}
-
-
-.projects .info-card{
-    width: 100%;
-    height: 100%;
-    background-color: #00000091;
-    backdrop-filter: blur(2px);
+.cards .card .dots {
     position: absolute;
-    top: 520px;
-    z-index: 555;
+    right: 5px;
+    top: -30px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s ease-in-out;
-    -webkit-transition: 0.5s ease-in-out;
-    -moz-transition: 0.5s ease-in-out;
-    -ms-transition: 0.5s ease-in-out;
-    -o-transition: 0.5s ease-in-out;
 }
 
-.info-card .icons .blog,
-.info-card .icons .wap{
-    background-color: rgb(255, 255, 255);
-    color: black;
+.cards .card .dots .red ,
+.Instructions .dots .red{
+    background-color: red;
+    width: 10px;
+    height: 10px;
+    display: block;
+    margin: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 2px red;
+
 }
 
-
-.projects_Swiper:hover .info-card{
-top: 0;
+.cards .card .dots .green ,
+.Instructions .dots .green{
+    background-color: #09b309;
+    width: 10px;
+    height: 10px;
+    display: block;
+    margin: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 2px #09b309;
 }
 
-.more{
+.cards .card .dots .orange ,
+.Instructions .dots .orange{
+    background-color: orange;
+    width: 10px;
+    height: 10px;
+    display: block;
+    margin: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 2px orange;
+
+}
+
+.more {
     width: 30px;
     height: 30px;
     overflow: hidden;
@@ -220,88 +192,59 @@ top: 0;
     -o-transition: 0.5s ease-in-out;
 }
 
-.more:hover{
+.more:hover {
     width: 180px;
     padding: 0 10px 0 0;
 }
 
-.more .content-more{
+.more .content-more {
     width: 200px;
     position: absolute;
 }
 
-.more .plus{
+.more .plus {
     margin-top: 4px;
     margin-left: 6px;
 }
 
-@media (max-width:1000px) {
-    .card-project .projectBigImg img{
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        }
 
-        .card-project .projectContent {
-            position: absolute;
-            top: 0px;
-            right: -4px;
-            width: 50%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-        }
 
-        .card-project .project-old_date {
-            position: absolute;
-            top: 20px;
-            right: 11px;
-        }
+@media (max-width:1278px) {
+    .card {
+        width: 45%;
+    }
 }
 
-
-
-
-@media (max-width:600px) {
-
-    .card-project .projectBigImg {
-        z-index: -5 !important;
+@media (max-width:845px) {
+    .cards {
+        justify-content: center;
         width: 100%;
-        height: 100%;
     }
-
-    .card-project .projectContent {
-        top: 0px;
-        right: 0;
-        padding: 5px;
-        width: 100%;
-        height: 100%;
-        background-color: #00000085;
+    .card{
+        width: 350px;
+        
     }
-
-}
-
-
-
-
-@media (max-width:320px){
-    .card-project .project-title {
-        font-size: 25px;
+    .cards .Instructions{
+        width: 90%;
     }
-    .card-project .project-des{
-        text-align: start;
-        font-size: 16px;
+    
+    .cards .card .dots {
+        right: 10px;
+        top: -32px;
     }
 }
-
-
-
-/* height */
-
-
-@media (max-height:600px) {
-    .projects {
-        height: 70%;
-    }   
+@media (max-width:770px) {
+    
+.cards {
+    padding-top: 15%;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    justify-content: center;
+}
+.cards .card{
+ width: 90%;
+ 
+}
 
 }

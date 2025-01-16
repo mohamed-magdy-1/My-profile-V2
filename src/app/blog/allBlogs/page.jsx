@@ -44,6 +44,12 @@ export default function AllBlogs() {
       <div className="allBlogs">
         {data?.map((item) => (
           <Link key={item.id} className="allBlogs-card" href={`/blog/${item?.slug}`}>
+              <div className="title">
+                <h2>{item.title}</h2>
+                <h4 className="blog-date">
+                  {item?.project?.old_date}
+                </h4>
+              </div>
             <div className="allBlogs-img">
               {item?.cover[0]?.url && (
                 <Image
@@ -58,20 +64,18 @@ export default function AllBlogs() {
               )}
             </div>
             <div className="allBlogs-content">
-              <h4 className="allBlogs-date">
-                {item?.project?.old_date}
-                <span className="line-2"></span>
-              </h4>
+            <span className="test-span"></span>
               <div className="icons">
                 {item?.project?.wap && (
                     <LordIconGlobe/>
                 )}
+                
                   <LordIconDocument/>
               </div>
-              <h1 className="allBlogs-title">{item?.title}</h1>
+
               <p
                 className="allBlogs-des"
-                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.project?.des)  }}
+                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.content)  }}
               ></p>
             </div>
           </Link>

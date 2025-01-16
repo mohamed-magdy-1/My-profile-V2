@@ -1,5 +1,4 @@
 'use client';
-
 import { useEffect } from 'react';
 
 
@@ -22,7 +21,7 @@ const LordIconDocument = () => {
   return (
     <lord-icon
         className='icon-Document lord-icon'
-      src="/icons/document.json"
+      src="/icons/Blog.json"
       trigger="loop"
       delay="2000"
       style={{ width: "30px", height: "30px" }}

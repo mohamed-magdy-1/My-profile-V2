@@ -30,7 +30,6 @@ export default async function RootLayout({ children }) {
       return (
         <html lang="en">
           <body className={`${Orbitron.variable}`} >
-            <div></div>
             {children}
           </body>
         </html>

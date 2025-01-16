@@ -1,21 +1,21 @@
 :root {
   --background: #ffffff;
   --foreground: #0d0d0d;
-  --min-color:#007bff;
-  --minor-color:#007bff47;
+  --min-color: #007bff;
+  --minor-color: #007bff47;
   --font-orbitron: 'Orbitron', sans-serif;
 }
 
 
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
 body {
   color: var(--background);
   background: var(--foreground);
-  font-family:  var(--font-orbitron) ;
+  font-family: var(--font-orbitron);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -64,8 +64,95 @@ a {
 
 
 
-@media (max-width:600px){
-  .hello{
+@media (max-width:600px) {
+  .hello {
     width: 95px !important;
   }
 }
+
+
+
+.animation-span-1 {
+  width: 100px;
+  display: block;
+  height: 100px;
+  background-color: #007bff;
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  border-radius: 50%;
+  box-shadow: 2px 1px 55px 72px #007bff;
+  animation: bull-1 ease-in-out 15s infinite ;
+  -webkit-animation: bull-1 ease-in-out 15s infinite ;
+}
+.animation-span-2 {
+  width: 100px;
+  display: block;
+  height: 100px;
+  background-color: #007bff;
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  border-radius: 50%;
+  box-shadow: 2px 1px 55px 72px #007bff;
+  animation: bull-2 ease-in-out  15s infinite ;
+  -webkit-animation: bull-2 ease-in-out  15s infinite ;
+}
+.animation-span-3 {
+  width: 100px;
+  display: block;
+  height: 100px;
+  background-color: #007bff;
+  position: absolute;
+  left: 50px;
+  bottom: 50px;
+  border-radius: 50%;
+  box-shadow: 2px 1px 55px 72px #007bff;
+  animation: bull-3 ease-in-out 15s infinite ;
+  -webkit-animation: bull-3 ease-in-out 15s infinite ;
+}
+.animation-span-4 {
+  width: 100px;
+  display: block;
+  height: 100px;
+  background-color: #007bff;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  border-radius: 50%;
+  box-shadow: 2px 1px 55px 72px #007bff;
+  animation: bull-4 ease-in-out  15s infinite ;
+  -webkit-animation: bull-4 ease-in-out  15s infinite ;
+}
+
+/* @keyframes bull-1 {
+
+  0%   {background-color:red; left:50%; top:50%;}
+  25%  {background-color:yellow; left:0%; top:0%;}
+  50%  {background-color:blue; left:0%; top:0%;}
+  75%  {background-color:green; left:0%; top:0%;}
+  100% {background-color:red; left:50%; top:50%;}
+}
+@keyframes bull-2 {
+
+  0%   {background-color:red; right:50%; top:50%;}
+  25%  {background-color:yellow; right:0%; top:0%;}
+  50%  {background-color:blue; right:0%; top:0%;}
+  75%  {background-color:green; right:0%; top:0%;}
+  100% {background-color:red; right:50%; top:50%;}
+}
+@keyframes bull-3 {
+
+  0%   {background-color:red; left:50%; bottom:50%;}
+  25%  {background-color:yellow; left:0%; bottom:0%;}
+  50%  {background-color:blue; left:0%; bottom:0%;}
+  75%  {background-color:green; left:0%; bottom:0%;}
+  100% {background-color:red; left:50%; bottom:50%;}
+}
+@keyframes bull-4 {
+  0%   {background-color:red; right:50%; bottom:50%;}
+  25%  {background-color:yellow; right:0%; bottom:0%;}
+  50%  {background-color:blue; right:0%; bottom:0%;}
+  75%  {background-color:green; right:0%; bottom:0%;}
+  100% {background-color:red; right:50%; bottom:50%;}
+} */

@@ -1,15 +1,13 @@
 'use client'
 import React, { useEffect, useState  } from 'react';
 import './projects.css';
-import { Autoplay } from 'swiper/modules';
 import GlobalApi from '../_utils/GlobalApi';
 import Image from 'next/image';
 import { PiPlusBold } from "react-icons/pi";
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { Swiper, SwiperSlide } from 'swiper/react';
 
-const LordIconDocument = dynamic(() => import('../components/LordIcon/LordIcon').then((mod) => mod.LordIconDocument), { ssr: false });
+ const LordIconDocument = dynamic(() => import('../components/LordIcon/LordIcon').then((mod) => mod.LordIconDocument), { ssr: false });
 const LordIconGlobe = dynamic(() => import('../components/LordIcon/LordIcon').then((mod) => mod.LordIconGlobe), { ssr: false });
 
 
@@ -35,77 +33,71 @@ export default function Projects() {
   }, []);
 
 
+  if(!data){
+    return("loding..")
+  }
+
+
+
+
   return (
     <>
-      <Link href={'/projects/AllProjects'} className='more'>
-        <div className='plus'>
+      <Link href={"/projects/AllProjects"} className="more">
+        <div className="plus">
           <PiPlusBold />
         </div>
-        <div className='content-more'>more projects</div>
+        <div className="content-more">more projects</div>
       </Link>
 
-      <div className="projects">
-        <Swiper
-          spaceBetween={0}
-          centeredSlides={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          modules={[Autoplay]}
-          className="projects_Swiper"
-        >
-          {data?.map((el) => (
-            <SwiperSlide key={el.id}>
-              <div className="card-project">
-                <div className="projectBigImg">
-                  <Image
-                    className="img-1"
-                    src={`${el?.projectImg.url}`}
-                    alt="projectBigImg"
-                    width={400}
-                    height={300}
-                    loading="lazy" 
-                  />
-                </div>
-                <div className="projectContent">
-                  <div className="project-old_date">
-                    {el.old_date}
-                    <span className="line-2"></span>
-                  </div>
-                  <div className="project-title">{el.title}</div>
-                  <div className="project-des">{el.des}</div>
-                  <div className='icons'>
-                  {el?.wap && (
-                  <div className='wap'>
-                    <LordIconGlobe/>
-                    SEE
-                  </div>
-                )}
-                <div className='blog'>
-                    <LordIconDocument />
-                  blog
-                  </div>
-                </div>
-                </div>
+
+
+      <div className="cards">
+      <div className="Instructions">
+        <div className="dots">
+          <span className="green"></span>
+          <p>Fully designed and developed by me</p>
+        </div>
+        <div className="dots">
+          <span className="orange">
+          </span>
+          <p>Converted from design to code by me</p>
+        </div>
+        <div className="dots">
+          <span className="red">
+      
+          </span>
+          <p> Learning project inspired by online resources</p>
+        </div>
+      </div>
+        {data.map((el) => (
+          <div className="card" key={el.id}>
+            <div className="title">
+              {el.title}
+              <div className='icon'>
+                              {el?.project?.wap && (
+                                <LordIconGlobe/>
+                              )}
+                              
+                              <LordIconDocument />
               </div>
-              <div className='info-card'>
-            <div className='icons'>
-                  {el?.wap && (
-                  <Link href={`${el?.wap}`} target='_blank' className='wap'>
-                    <LordIconGlobe/>
-                    SEE
-                  </Link>
-                )}
-                <Link href={`/blog/${el?.blog?.slug}`} className='blog'>
-                <LordIconDocument />
-                  blog
-                  </Link>
-                </div>
+
+                  
             </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+            <div className="dots">
+              <span className="green" style={{opacity: el.status_color === "green" ? 1 : 0.5}}></span>
+              <span className="orange" style={{opacity: el.status_color === "orange" ? 1 : 0.5 }}></span>
+              <span className="red" style={{opacity: el.status_color === "red" ? 1 : 0.5 }}></span>
+            </div>
+            <Image
+              className="img-1"
+              src={`${el?.projectImg.url}`}
+              alt="projectBigImg"
+              width={400}
+              height={300}
+              loading="lazy"
+            />
+          </div>
+        ))}
       </div>
     </>
   );

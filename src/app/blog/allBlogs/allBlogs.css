@@ -22,17 +22,10 @@
 
 .allBlogs .allBlogs-card{
     width: 40%;
-    height: 270px;
+    height: 240px;
     display: flex;
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--min-color);
-    box-shadow: 0 0 7px 0px var(--min-color);
-    background-image: radial-gradient(circle, var(--min-color) 1px, transparent 1px);
-    background-size: 10px 10px;
-    border-radius: 10px;
-    z-index: 556;
+    background-color: #1C1C1F;
+    border: 1px solid #2D2D2F;
     position: relative;
     cursor: pointer;
     border-radius: 5px;
@@ -40,38 +33,69 @@
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-    transition:0.5s ease-in-out ;
-    -webkit-transition:0.5s ease-in-out ;
-    -moz-transition:0.5s ease-in-out ;
-    -ms-transition:0.5s ease-in-out ;
-    -o-transition:0.5s ease-in-out ;
+    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    align-items: flex-start;
+    justify-content: center;
 }
 .allBlogs .allBlogs-card:hover{
-    transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    -moz-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    -o-transform: scale(1.05);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    -o-transform: scale(1.02);
 }
 
 
-.allBlogs .allBlogs-card::before {
+
+.allBlogs .allBlogs-card .test-span{
+    width: 100%;
+    height: 100%;
+    display: block;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    background-image: radial-gradient(circle, var(--min-color) 1px, transparent 1px);
+    background-size: 10px 10px;
+    z-index: 1;
+    position: absolute;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+}
+
+.allBlogs .allBlogs-card .test-span::before {
     content: "";
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
-    left: 20%;
-    right: 10%;
+    top: -33px;
+    left: 12%;
     bottom: 10%;
     background: radial-gradient(circle, var(--minor-color), transparent 70%);
     border-radius: 10px;
     z-index: -1; 
 }
-
-
-
-
+.allBlogs .allBlogs-card .test-span::after {
+    content: "";
+    width: 100%;
+    height: 76%;
+    position: absolute;
+    top: 114px;
+    left: -54%;
+    bottom: 10%;
+    transform: rotate(40deg);
+    box-shadow: 0 0 114px 105px #1C1C1F;
+    background-color: #1C1C1F;
+    z-index: -1;
+}
 
 
 
@@ -99,17 +123,40 @@
     align-items: flex-start;
 }
 
-.allBlogs .allBlogs-card  .allBlogs-date{
-    text-align: end;
-    color: #ffff;
+.allBlogs .allBlogs-card .title {
+    background-color: #1C1C1F;
     position: absolute;
-    top: 6px;
-    left: 5px;
+    color: white;
+    top: -48px;
+    left: -1px;
+    width: 100%;
+    padding: 4px;
+    border-radius: 5px;
+    text-align: justify;
+    border: 1px solid;
+    border-color: #2D2D2F;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    display: flex;
+        align-items: center;
+        justify-content: space-between;
 }
-.allBlogs .allBlogs-card  .allBlogs-title{
+
+
+
+.allBlogs .allBlogs-card .title h2{
+    width: 50%;
+    display: -webkit-box; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    -webkit-line-clamp: 1; 
+}
+.allBlogs .allBlogs-card .title .blog-date{
     color: #ffff;
-    margin-bottom: 5px;
-    font-size: 25px;
+    font-size: 15px;
 }
 
 .allBlogs .allBlogs-card  .allBlogs-des{
@@ -121,29 +168,25 @@
     -webkit-box-orient: vertical; 
     overflow: hidden; 
     text-overflow: ellipsis; 
-    -webkit-line-clamp: 4; 
+    -webkit-line-clamp: 8; 
+    position: relative;
+    z-index: 2;
 }
 
 
-.allBlogs .allBlogs-card  .line-2{
-    width: 100%;
-    position: absolute;
-    top: 25px;
-    display: block;
-    height: 2px;
-    background-color: var(--min-color);
-    box-shadow: 0px 0px 5px 2px var(--min-color);
-}
+
 
 .allBlogs .allBlogs-card  .icons{
     width: 111px !important;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 10px;
     position: static !important;
     margin-top: 9px;
     margin-bottom: 5px;
+    position: relative;
+    z-index: 2;
 }
 
 .allBlogs .lord-icon{
@@ -158,13 +201,12 @@
 
 
 
-@media (max-width:720px) {
+@media (max-width:995px) {
 
     .allBlogs .allBlogs-card{
         width: 90% !important;
-
         display: flex !important;
-        margin-bottom: 20px !important;
+        margin-top: 50px !important;
 
     }
 

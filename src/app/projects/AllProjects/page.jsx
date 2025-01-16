@@ -6,11 +6,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/app/components/header/header';
 import dynamic from 'next/dynamic';
+import GlobalApi from '@/app/_utils/GlobalApi';
 
-
+ const LordIconDocument = dynamic(() => import('../../components/LordIcon/LordIcon').then((mod) => mod.LordIconDocument), { ssr: false });
 const LordIconGlobe = dynamic(() => import('../../components/LordIcon/LordIcon').then((mod) => mod.LordIconGlobe), { ssr: false });
 const DynamicPagination = dynamic(() => import('@/app/components/pagination/pagination'), { ssr: false });
-import GlobalApi from '@/app/_utils/GlobalApi';
+
 
 export default function AllProjects() {
   const [data, setData] = useState(null);
@@ -42,32 +43,41 @@ export default function AllProjects() {
 
   
   return (
-    <div>
+    <div className='card-AllProjects'>
       <Header title="Projects" />
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div className='card-AllProjects'>
-          {data?.map((item) => (
- <Link href={item?.wap || "#"} target='_blank'  onClick={(e) => { if (!item?.wap) e.preventDefault(); }} className='card-img-pj' key={item.id}>
- {item?.wap && (
-  <LordIconGlobe className='AllProjects-icon-Globe'/>
- )}
- {
-   item?.projectImg?.url &&
-   <Image
-   className="img-1"
-         src={item?.projectImg?.url} 
-         alt="Background Image" 
-         layout="fill" 
-         quality={75} 
-         priority  
-       />
- }
-<div className='name-card' key={item.id}>{item.title}</div>
-</Link>
-          ))}
-        </div>
+        
+              <div className="cards">
+                {data.map((el) => (
+                  <div className="card" key={el.id}>
+                    <div className="title">
+                      {el.title}
+                      <div className='icon'>
+                                      {/* {el?.project?.wap && ()} */}
+                                      <LordIconGlobe/>
+                                      <LordIconDocument />
+                      </div>
+        
+                          
+                    </div>
+                    <div className="dots">
+                      <span className="green"></span>
+                      <span className="orange"></span>
+                      <span className="red"></span>
+                    </div>
+                    <Image
+                      className="img-1"
+                      src={`${el?.projectImg.url}`}
+                      alt="projectBigImg"
+                      width={400}
+                      height={300}
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
       )}
       <DynamicPagination pageCount={pageCount} pageIndex={pageIndex} setPageIndex={setPageIndex} />
     </div>
