@@ -24,13 +24,37 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
 
+  const res = await fetch(`https://strapi-my-profile-v2.onrender.com/api/background-img?populate=*`,{
+  headers:{
+    'Authorization': `Bearer ${process.env.NEXT_TOKEN}`,
+    'Content-Type': 'application/json',
+  }});
+  const data = await res.json();
 
-
+  console.log(data)
 
       return (
         <html lang="en">
           <body className={`${Orbitron.variable}`} >
+            <div className="container">
+              {
+                data?.data.background?.provider_metadata.resource_type === "video" &&
+                <video className="back-vid" loop autoPlay muted playsInline>
+                <source src={data?.data.background?.url} type="video/mp4" />
+                Your browser does not support the video tag.
+                </video>
+              }
+                            {
+                data?.data.background_Img2?.provider_metadata.resource_type === "video" &&
+                <video className="black_hole" loop autoPlay muted playsInline>
+                <source src={data?.data.background_Img2?.url} type="video/mp4" />
+                Your browser does not support the video tag.
+                </video>
+              }
+
             {children}
+            </div>
+            
           </body>
         </html>
       );

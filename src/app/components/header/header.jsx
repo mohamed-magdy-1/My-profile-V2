@@ -22,6 +22,7 @@ export default function Header({title}) {
         }
     },[])
 
+
 return (
     <header className="header">
         <Link href='/'>

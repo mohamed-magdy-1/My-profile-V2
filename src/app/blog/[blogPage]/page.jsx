@@ -76,16 +76,14 @@ export default function BlogPage() {
           </div>
         </div>
         <div className="BlogPage_Image">
-          {data?.cover[0]?.url && (
             <Image
               className="img-1"
-              src={data?.cover[0]?.url}
+              src={data?.cover?.url ? data?.cover?.url : "/default-image.jpg"}
               alt="BlogPage Image"
               width={400}
               height={300}
               priority
             />
-          )}
         </div>
         <div
           className="BlogPage_Content_blog"
@@ -108,22 +106,23 @@ export default function BlogPage() {
               <Link
                 href={`/blog/${item?.slug}`}
                 target="_blank"
-                className="card-img-pj"
                 key={item.id}
               >
-                {item?.cover[0]?.url && (
+                <div className="card-img-pj">
                   <Image
                     className="img-1"
-                    src={item?.cover[0]?.url}
+                    src={ item?.cover?.url ? item?.cover?.url : "/default-image.jpg"}
                     alt="Background Image"
                     layout="fill"
                     quality={75}
                     priority
                   />
-                )}
                 <div className="name-card" key={item.id}>
                   {item.title}
                 </div>
+                </div>
+
+
               </Link>
             ))}
           </div>

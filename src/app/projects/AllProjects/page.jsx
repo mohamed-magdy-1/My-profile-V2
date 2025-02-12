@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Header from '@/app/components/header/header';
 import dynamic from 'next/dynamic';
 import GlobalApi from '@/app/_utils/GlobalApi';
+import Loading2 from '@/app/components/loading-2/loading-2';
 
  const LordIconDocument = dynamic(() => import('../../components/LordIcon/LordIcon').then((mod) => mod.LordIconDocument), { ssr: false });
 const LordIconGlobe = dynamic(() => import('../../components/LordIcon/LordIcon').then((mod) => mod.LordIconGlobe), { ssr: false });
@@ -26,7 +27,6 @@ export default function AllProjects() {
         let res = await GlobalApi.AllProjectsApi(pageIndex);
         setData(res.data);
         setPageCount(res?.meta.pagination.pageCount);
-        console.log(res)
       } catch (err) {
         console.log(err);
       } finally {
@@ -37,7 +37,7 @@ export default function AllProjects() {
   }, [pageIndex]);
 
 
-
+console.log(data)
 
   
 
@@ -45,40 +45,43 @@ export default function AllProjects() {
   return (
     <div className='card-AllProjects'>
       <Header title="Projects" />
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        
-              <div className="cards">
-                {data.map((el) => (
-                  <div className="card" key={el.id}>
-                    <div className="title">
-                      {el.title}
-                      <div className='icon'>
-                                      {/* {el?.project?.wap && ()} */}
-                                      <LordIconGlobe/>
-                                      <LordIconDocument />
+                    <div className="AllProjects-cards">
+                    {loading ? (<Loading2/>) 
+                    : (
+                      <>
+                      {data?.map((el) => (
+                    <div className="card" key={el.id}>
+                      <div className="title">
+                        {el.title}
+                        <div className='icon'>
+                                        {el?.wap && (<LordIconGlobe/>)} 
+                                        
+                                        <LordIconDocument />
+                        </div>
+          
+                            
                       </div>
-        
-                          
-                    </div>
-                    <div className="dots">
-                      <span className="green"></span>
-                      <span className="orange"></span>
-                      <span className="red"></span>
-                    </div>
-                    <Image
-                      className="img-1"
-                      src={`${el?.projectImg.url}`}
-                      alt="projectBigImg"
-                      width={400}
-                      height={300}
-                      loading="lazy"
-                    />
-                  </div>
-                ))}
+                      <div className="dots">
+                <span className="green" style={{opacity: el.status_color === "green" ? 1 : 0.5}}></span>
+                <span className="orange" style={{opacity: el.status_color === "orange" ? 1 : 0.5 }}></span>
+                <span className="red" style={{opacity: el.status_color === "red" ? 1 : 0.5 }}></span>
               </div>
-      )}
+                      <Image
+                        className="img-1"
+                        src={`${el?.projectImg.url}`}
+                        alt="projectBigImg"
+                        width={400}
+                        height={300}
+                        loading="lazy"
+                      />
+                    </div>
+                    
+                  ))}
+                      </>
+                    )}
+
+
+              </div>
       <DynamicPagination pageCount={pageCount} pageIndex={pageIndex} setPageIndex={setPageIndex} />
     </div>
   );

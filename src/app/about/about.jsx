@@ -59,6 +59,7 @@ return (
 
             return (
                 <SwiperSlide className="about-sc" key={slider.id}>
+                    
                     <div className="title-about">{slider.title}</div>
                     {
                         slider?.content_about &&

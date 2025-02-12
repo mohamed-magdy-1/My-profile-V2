@@ -44,21 +44,6 @@ export const contactApi = (data) => sendData(`/contacts`,data);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export default {
     HeaderApi,
     HomeApi,

@@ -206,6 +206,7 @@
 .allBlog .blog-card .blog-img img{
     position: relative !important;
     width: 100%;
+    border-radius: 5px 0 0 5px;
     
 }
 .allBlog .blog-card .blog-content{

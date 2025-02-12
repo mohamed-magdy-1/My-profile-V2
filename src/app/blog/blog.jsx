@@ -9,6 +9,7 @@ import { PiPlusBold } from "react-icons/pi";
 
 import DOMPurify from "dompurify";
 import dynamic from "next/dynamic";
+import Loading2 from "../components/loading-2/loading-2";
 const LordIconDocument = dynamic(
   () =>
     import("../components/LordIcon/LordIcon").then(
@@ -37,7 +38,6 @@ const Blog = () => {
     BlogFunApi();
   }, []);
 
-  console.log(data);
 
   return (
     <>
@@ -63,16 +63,14 @@ const Blog = () => {
                 </h4>
               </div>
               <div className="blog-img">
-                {item?.cover[0]?.url && (
                   <Image
                     className="img-1"
-                    src={item?.cover[0]?.url}
+                    src={item?.cover?.url ? item?.cover?.url : "/default-image.jpg"}
                     alt="Background Image"
                     width={400}
                     height={300}
                     loading="lazy"
                   />
-                )}
               </div>
               <div className="blog-content">
                 <span className="test-span"></span>
@@ -92,7 +90,7 @@ const Blog = () => {
             </Link>
           ))
         ) : (
-          <p>Loading...</p>
+          <Loading2/>
         )}
       </div>
     </>

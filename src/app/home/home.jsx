@@ -16,6 +16,7 @@ const [data,setData] = useState(null)
             async function HomeFunApi() {
                 let res = await GlobalApi.HomeApi()
                 setData(res.data)
+                
             }
             HomeFunApi()
         }catch(err){

@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { PiPlusBold } from "react-icons/pi";
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { clearConfig } from 'dompurify';
+import Loading2 from '../components/loading-2/loading-2';
 
  const LordIconDocument = dynamic(() => import('../components/LordIcon/LordIcon').then((mod) => mod.LordIconDocument), { ssr: false });
 const LordIconGlobe = dynamic(() => import('../components/LordIcon/LordIcon').then((mod) => mod.LordIconGlobe), { ssr: false });
@@ -34,7 +36,7 @@ export default function Projects() {
 
 
   if(!data){
-    return("loding..")
+    return <Loading2/>
   }
 
 
@@ -74,7 +76,7 @@ export default function Projects() {
             <div className="title">
               {el.title}
               <div className='icon'>
-                              {el?.project?.wap && (
+                              {el?.wap && (
                                 <LordIconGlobe/>
                               )}
                               
@@ -90,7 +92,7 @@ export default function Projects() {
             </div>
             <Image
               className="img-1"
-              src={`${el?.projectImg.url}`}
+              src={el?.projectImg?.url ? el.projectImg.url : "/default-image.jpg"}
               alt="projectBigImg"
               width={400}
               height={300}

@@ -41,6 +41,7 @@ const handleSubmit = async (e) => {
         console.log(error)
         setErrorMessage('Failed to submit the message. Please try again.');
     }
+    
 };
 
 

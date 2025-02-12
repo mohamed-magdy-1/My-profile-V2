@@ -154,7 +154,9 @@ font-size: 30px;
 .resent-blog .card .box{
     width: 100%;
     width: 100%;
-    display: -webkit-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     overflow-x: auto;
     gap: 10px;
     padding: 5px;
@@ -248,6 +250,4 @@ border-color: var(--min-color) var(--min-color)  transparent transparent;
 
 
 
-@media (max-width:600px){
 
-}

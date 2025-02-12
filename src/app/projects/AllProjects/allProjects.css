@@ -1,15 +1,21 @@
 
 
-.card-AllProjects .cards {
+.card-AllProjects{
     width: 100%;
+    height: 100%;
+
+}
+
+.card-AllProjects .AllProjects-cards {
+    width: 100%;
+    min-height: 695px;
     display: flex;
     padding: 0 20px;
     gap: 55px 0;
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    position: relative;
-    margin-top: 110px;
+    padding-top: 160px;
 }
 
 
@@ -17,7 +23,7 @@
 .card {
     position: relative;
     margin: 5px;
-    width: 370px;
+    width: 420px;
     height: 230px;
     background-color: #1C1C1F;
     border-radius: 6px;
@@ -52,6 +58,7 @@
 .card .img-1{
     width: 100% !important;
     height: 100% !important;
+    object-fit: cover;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -89,6 +96,7 @@
     right: 0;
     top: 0px;
     display: flex;
+    justify-content: flex-end;
 }
 
 .card .dots {
@@ -110,13 +118,13 @@
 }
 
 .card .dots .green {
-    background-color: green;
+    background-color: #09b309;
     width: 10px;
     height: 10px;
     display: block;
     margin: 5px;
     border-radius: 50%;
-    box-shadow: 0 0 5px 2px green;
+    box-shadow: 0 0 5px 2px #09b309;
 }
 
 .card .dots .orange {
@@ -186,7 +194,7 @@
 @media (max-width:845px) {
 
 
-    .cards .Instructions{
+    .AllProjects-cards .Instructions{
         width: 90%;
     }
     
