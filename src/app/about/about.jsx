@@ -80,7 +80,7 @@ return (
                             }}
                             key={img.id}
                             className="img-1"
-                            src={img.url}
+                            src={img?.url}
                             alt="Background Image"
                             width={400}
                             height={300}

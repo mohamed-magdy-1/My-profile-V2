@@ -64,7 +64,7 @@ useEffect(()=>{
 return (
     <div className="contact">
         <div className="SocialMedia">
-            {
+            {/* {
                 data?.map((item)=>(
                     <Link key={item.id} href={item?.link || '#'}  target="_blank">
                     {
@@ -79,7 +79,7 @@ return (
                     }
                     </Link>
                 ))
-            }
+            } */}
 
         </div>
         <form onSubmit={handleSubmit}>

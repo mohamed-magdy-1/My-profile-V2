@@ -27,9 +27,9 @@ return (
     <header className="header">
         <Link href='/'>
         {
-            data?.logo.url &&
+            data?.logo?.url &&
             <Image
-            src={data?.logo.url}
+            src={data?.logo?.url}
             alt="Logo"
             width={800}
             height={600}
