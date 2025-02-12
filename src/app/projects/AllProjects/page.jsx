@@ -68,7 +68,7 @@ console.log(data)
               </div>
                       <Image
                         className="img-1"
-                        src={`${el?.projectImg.url}`}
+                        src={`${el?.projectImg?.url}`}
                         alt="projectBigImg"
                         width={400}
                         height={300}

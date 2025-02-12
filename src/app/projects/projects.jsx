@@ -92,7 +92,7 @@ export default function Projects() {
             </div>
             <Image
               className="img-1"
-              src={el?.projectImg?.url ? el.projectImg.url : "/default-image.jpg"}
+              src={el?.projectImg?.url ? el?.projectImg?.url : "/default-image.jpg"}
               alt="projectBigImg"
               width={400}
               height={300}
