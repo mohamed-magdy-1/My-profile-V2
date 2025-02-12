@@ -23,6 +23,7 @@
 .allBlogs .allBlogs-card{
     width: 40%;
     height: 240px;
+    margin-bottom: 50px;
     display: flex;
     background-color: #1C1C1F;
     border: 1px solid #2D2D2F;
