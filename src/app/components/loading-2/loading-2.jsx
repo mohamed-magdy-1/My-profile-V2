@@ -4,7 +4,6 @@ export default function Loading2() {
 
 
 
-
   return (
     <div className="Loading-2">
         <div className="balls">

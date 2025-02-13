@@ -37,7 +37,7 @@ export default function AllProjects() {
   }, [pageIndex]);
 
 
-console.log(data)
+
 
   
 

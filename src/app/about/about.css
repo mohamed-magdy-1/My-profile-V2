@@ -132,6 +132,21 @@
 }
 
 
+
+.keyboard-navigation-message {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid green;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+
 @media (min-width: 768px) and (min-height: 1024px) {
     .about .title-about {
         font-size: 50px !important;
