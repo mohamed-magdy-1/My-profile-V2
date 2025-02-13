@@ -66,7 +66,7 @@ const handleInit = (swiper)=>{
                 <SwiperSlide><DynamicHome /></SwiperSlide>
                 <SwiperSlide><DynamicAbout /></SwiperSlide>
                 <SwiperSlide><DynamicProjects /></SwiperSlide>
-                <SwiperSlide><DynamicBlog /></SwiperSlide> 
+                {/* <SwiperSlide><DynamicBlog /></SwiperSlide>  */}
                 <SwiperSlide><DynamicContact /></SwiperSlide> 
             </Swiper>
         </>

@@ -71,7 +71,7 @@ export default function Projects() {
           <p> Learning project inspired by online resources</p>
         </div>
       </div>
-        {data.map((el) => (
+        { data.map((el) => (
           <div className="card" key={el.id}>
             <div className="title">
               {el.title}

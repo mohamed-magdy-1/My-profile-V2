@@ -46,19 +46,19 @@ const handleSubmit = async (e) => {
 
 
 
-const [data,setData] = useState(null)
+// const [data,setData] = useState(null)
 
-useEffect(()=>{
-    try{
-        async function SocialMediaFunApi() {
-            let res = await GlobalApi.SocialMediaApi()
-            setData(res.data)
-        }
-        SocialMediaFunApi()
-    }catch(err){
-        console.log(err)
-    }
-},[])
+// useEffect(()=>{
+//     try{
+//         async function SocialMediaFunApi() {
+//             let res = await GlobalApi.SocialMediaApi()
+//             setData(res.data)
+//         }
+//         SocialMediaFunApi()
+//     }catch(err){
+//         console.log(err)
+//     }
+// },[])
 
 
 return (
