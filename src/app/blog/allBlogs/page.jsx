@@ -59,17 +59,17 @@ export default function AllBlogs() {
                 </h4>
               </div>
             <div className="allBlogs-img">
-              {item?.cover?.url && (
+              
                 <Image
                   className="img-1"
-                  src={item?.cover?.url}
+                  src={item?.cover?.url ? item?.cover?.url : "/default-image.jpg"}
                   alt="Background Image"
                   width={400}
                   height={300}
                   loading="lazy"
                   quality={75}
                 />
-              )}
+
             </div>
             <div className="allBlogs-content">
             <span className="test-span"></span>

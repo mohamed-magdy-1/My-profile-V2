@@ -31,7 +31,7 @@ export default function BlogPage() {
     } catch (err) {
       console.log(err);
     }
-  }, []);
+  }, [blogPage]);
 
   const [dataResent, setDataResent] = useState(null);
 
