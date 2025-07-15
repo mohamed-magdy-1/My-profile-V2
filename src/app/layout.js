@@ -24,7 +24,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
 
-  const res = await fetch(`https://strapi-my-profile-v2.onrender.com/api/background-img?populate=*`,{
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/background-img?populate=*`,{
   headers:{
     'Authorization': `Bearer ${process.env.NEXT_TOKEN}`,
     'Content-Type': 'application/json',

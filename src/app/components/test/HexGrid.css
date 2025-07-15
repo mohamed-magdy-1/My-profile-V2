@@ -1,0 +1,90 @@
+.hex-grid-container {
+  width: 40%;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: all 0.3s ease;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+
+.hex {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  border: 2px solid gray;
+  background-color: #ffffff;
+  clip-path: polygon(    25% 6.7%,     75% 6.7%,     100% 50%,     75% 93.3%,     25% 93.3%,     0% 50%  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+}
+.hex:nth-child(odd) {
+  transform: translateY(50%);
+  margin-bottom: 40px;
+  transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+}
+.hex:hover{
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+.hex:nth-child(odd):hover{
+  transform: scale(1.1);
+}
+
+
+.hex img{
+  width: 50px !important;
+  height: 50px !important;
+}
+
+
+
+@media (min-width:851px) and (max-width: 1200px) {
+  .hex-grid-container {
+    width: 60% ;
+  }
+}
+
+@media (max-width:500px) {
+  .hex-grid-container {
+    width:100%;
+    gap: 0;
+    padding: 0;
+  }
+  .hex {
+    width: 60px;
+    height: 60px;
+
+  }
+}
+
+
+
+@media (min-width: 501px) and (max-width: 850px) {
+  .hex-grid-container {
+    width:100%;
+    gap: 0;
+    padding: 0;
+  }
+}

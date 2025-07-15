@@ -29,6 +29,7 @@
     background-color: #1C1C1F;
     border-radius: 6px;
     cursor: pointer;
+    overflow-x: clip;
     border: 1px solid #2D2D2F;
     transition: 0.5s ease-in-out;
     -webkit-transition: 0.5s ease-in-out;
@@ -182,6 +183,58 @@
 .more .plus {
     margin-top: 4px;
     margin-left: 6px;
+}
+
+
+/* visit */
+.card .visit{
+    width: 100%;
+    height: 100%;
+    background: #0000008f;
+    position: absolute;
+    top: 0;
+    left: -500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+}
+
+.AllProjects-cards .card:hover .visit{
+    left: 0;
+}
+.card .visit a {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+color: white;
+}
+
+.card .visit a .ArrowUpRight{
+    transform: translateY(6px);
+    transition: 0.5s ease-in-out;
+    -webkit-transform: translateY(6px);
+    -moz-transform: translateY(6px);
+    -ms-transform: translateY(6px);
+    -o-transform: translateY(6px);
+}
+
+.card .visit a:hover .ArrowUpRight{
+    transform: translateX(10px);
+    -webkit-transform: translateX(10px);
+    -moz-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    -o-transform: translateX(10px);
 }
 
 

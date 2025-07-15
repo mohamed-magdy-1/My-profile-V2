@@ -12,6 +12,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import DOMPurify from 'dompurify';
 
 import ImgISliderAbout from '../components/imgISliderAbout/imgISliderAbout';
+import HexGrid from '../components/test/HexGrid';
 
 
 
@@ -37,14 +38,12 @@ const [data,setData] = useState(null)
 
 
 
-    
-
-
 
 
 
 return (
     <div className='about'>
+
                 <Swiper
         direction={'vertical'}
         pagination={{
@@ -54,13 +53,20 @@ return (
         className="mySwiper"
     >
 
+
         {
             data?.all_about?.map((slider)=>{
 
             return (
                 <SwiperSlide className="about-sc" key={slider.id}>
-                    
+                                    
+
+
                     <div className="title-about">{slider.title}</div>
+                    <div className="img-container">
+                    {slider?.skill_icon && <HexGrid data={slider?.skill_icon} />}
+                </div>
+
                     {
                         slider?.content_about &&
                         <div
@@ -79,7 +85,7 @@ return (
                             setImgIndex(i);
                             }}
                             key={img.id}
-                            className="img-1"
+                            className="img-certificate"
                             src={img?.url}
                             alt="Background Image"
                             width={400}

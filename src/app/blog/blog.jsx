@@ -38,7 +38,6 @@ const Blog = () => {
     BlogFunApi();
   }, []);
 
-
   return (
     <>
       <Link href={"/blog/allBlogs"} className="more">

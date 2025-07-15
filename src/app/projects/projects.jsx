@@ -8,7 +8,8 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { clearConfig } from 'dompurify';
 import Loading2 from '../components/loading-2/loading-2';
-
+import { PiArrowUpRight } from "react-icons/pi";
+import { VscEyeClosed } from "react-icons/vsc";
  const LordIconDocument = dynamic(() => import('../components/LordIcon/LordIcon').then((mod) => mod.LordIconDocument), { ssr: false });
 const LordIconGlobe = dynamic(() => import('../components/LordIcon/LordIcon').then((mod) => mod.LordIconGlobe), { ssr: false });
 
@@ -98,6 +99,14 @@ export default function Projects() {
               height={300}
               loading="lazy"
             />
+            <div className='visit'>
+                              {el?.wap ? (
+                                <Link target='_blank' href={el?.wap}>
+                                <span>visit</span> <span className='ArrowUpRight'><PiArrowUpRight /></span> 
+                                </Link>
+                                
+                              ) : <span style={{display:"flex",justifyContent:'center',alignItems:"center"}}>Not available   <VscEyeClosed /></span> }
+            </div>
           </div>
         ))}
       </div>

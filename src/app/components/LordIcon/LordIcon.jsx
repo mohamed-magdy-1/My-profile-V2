@@ -30,9 +30,11 @@ const LordIconDocument = () => {
 };
 
 
+
+
+
 const LordIconGlobe = () => {
   useLordIconSetup();
-
   return (
     <lord-icon
     className='icon-Globe lord-icon'

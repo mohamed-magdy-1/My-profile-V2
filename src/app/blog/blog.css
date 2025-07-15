@@ -133,7 +133,7 @@
 
 
 .allBlog .blog-card .title h2{
-    width: 50%;
+    width: 65%;
     display: -webkit-box; 
     -webkit-box-orient: vertical; 
     overflow: hidden; 
@@ -328,7 +328,7 @@ height: 45px !important;
 
 @media (max-width:640px) {
     .allBlog {
-        padding-top: 25px;
+        padding-top: 65px;
     }
     .allBlog .blog-card .blog-img{
         position: absolute;

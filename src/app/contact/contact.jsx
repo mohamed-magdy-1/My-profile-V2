@@ -5,6 +5,7 @@ import GlobalApi from "../_utils/GlobalApi"
 import './contact.css'
 import Link from "next/link"
 import Image from "next/image"
+import Loading2 from "../components/loading-2/loading-2"
 
 export default function Contact() {
 
@@ -15,11 +16,12 @@ let [email,setEmail] = useState('')
 let [textarea,setTextarea] = useState('')
 let [message,setMessage] = useState('')
 let [errorMessage,setErrorMessage] = useState('')
-
+const [loading, setLoading] = useState(false);
+const [disabled, setDisabled] = useState(false);
 
 const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setDisabled(true)
     let data={
         "data": {
         "name": name,
@@ -31,17 +33,19 @@ const handleSubmit = async (e) => {
 
 
     try {
+        setLoading(true);
         await GlobalApi.contactApi(data); 
         setName('')
         setNumber('')
         setEmail('')
         setTextarea('')
         setMessage('message submitted successfully!');
+        setLoading(false);
     } catch (error) {
-        console.log(error)
+        setLoading(false);
         setErrorMessage('Failed to submit the message. Please try again.');
     }
-    
+    setDisabled(false)
 };
 
 
@@ -117,7 +121,7 @@ return (
                 />
             </div>
             <div className="t4">
-                <button type="submit">Submit</button>
+                <button style={{display:"flex",justifyContent:'center',alignItems:'center'}} disabled={disabled} type="submit">{loading ? <span style={{width:'37%',display:'block'}}> <Loading2/></span>  : "submit"}</button>
             </div>
         </form>
         {

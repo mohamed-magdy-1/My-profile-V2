@@ -9,7 +9,7 @@ export const GET = async (req) => {
     }
 
     const token = process.env.NEXT_TOKEN; 
-    const apiUrl = `https://strapi-my-profile-v2.onrender.com/api${endpoint}`;
+    const apiUrl = `${process.env.NEXT_API_URL}${endpoint}`;
 
     const response = await axios.get(apiUrl, {
       headers: {
@@ -36,7 +36,7 @@ export const POST = async (req) => {
     }
 
     const token = process.env.NEXT_TOKEN; 
-    const apiUrl = `https://strapi-my-profile-v2.onrender.com/api${endpoint}`;
+    const apiUrl = `${process.env.NEXT_API_URL}${endpoint}`;
 
     const response = await axios.post(apiUrl,body, {
       headers: {
