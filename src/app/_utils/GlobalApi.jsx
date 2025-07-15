@@ -27,6 +27,7 @@ const sendData = async (endpoint,data) => {
 
 
 export const HeaderApi = () => fetchData("/header?populate=*");
+export const BackgroundVideosApi = () => fetchData("/background-img?populate=*");
 export const HomeApi = () => fetchData("/home?populate=*");
 export const AboutApi = () => fetchData("/about?populate[all_about][populate]=*");
 // Projects
@@ -56,5 +57,6 @@ export default {
     ResentAddBlogApi,
     contactApi,
     SocialMediaApi,
+    BackgroundVideosApi,
 
 };
