@@ -50,7 +50,9 @@
     -o-transform: scale(1.02);
 }
 
-
+.allBlogs-des h1{
+    font-size: 18px;
+}
 
 .allBlogs .allBlogs-card .test-span{
     width: 100%;
@@ -145,6 +147,13 @@
         justify-content: space-between;
 }
 
+.BlogPage .BlogPage_Content_blog{
+line-height: 2 !important;
+    font-size: 16px !important;
+    color: #ffff !important;
+    font-family: system-ui !important;
+
+}
 
 
 .allBlogs .allBlogs-card .title h2{
@@ -172,6 +181,7 @@
     -webkit-line-clamp: 8; 
     position: relative;
     z-index: 2;
+    line-height: 2;
 }
 
 

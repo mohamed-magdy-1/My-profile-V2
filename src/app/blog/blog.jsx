@@ -61,6 +61,7 @@ const Blog = () => {
                   {item?.project?.old_date}
                 </h4>
               </div>
+              
               <div className="blog-img">
                   <Image
                     className="img-1"

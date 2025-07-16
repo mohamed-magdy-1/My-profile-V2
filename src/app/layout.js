@@ -6,6 +6,7 @@ import 'swiper/css/pagination';
 
 import 'swiper/css';
 import BackgroundVideos from "./components/BackgroundVideos/BackgroundVideos";
+import ProgressClient from "./components/ProgressBarProvider/ProgressBarProvider";
 
 const Orbitron = localFont({
   src: "./fonts/Orbitron-VariableFont_wght.ttf",
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
         <html lang="en">
           <body className={`${Orbitron.variable}`} >
             <div className="container">
+              <ProgressClient />
               <BackgroundVideos />
               {children}
             </div>
