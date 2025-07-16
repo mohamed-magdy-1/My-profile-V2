@@ -6,6 +6,16 @@
   --font-orbitron: 'Orbitron', sans-serif;
 }
 
+/* تغيير لون الشريط */
+#nprogress .bar {
+  background: #007bff;
+}
+
+/* تغيير لون الدائرة */
+#nprogress .spinner-icon {
+  border-top-color: #007bff;
+  border-left-color: #007bff;
+}
 
 
 html {
