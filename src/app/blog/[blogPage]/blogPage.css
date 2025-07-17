@@ -12,6 +12,7 @@
 }
 
 .BlogPage_Image img {
+    border: 1px solid var(--min-color);
     width: 100% !important;
     height: 400px !important;
     position: static !important;
@@ -46,6 +47,7 @@
     width: fit-content;
     height: 31px;
     color: white;
+    gap: 15px;
     background-color: black;
     display: flex;
     align-items: center;
@@ -87,7 +89,6 @@
     text-align: end;
     color: #ffff;
     font-size: 15px;
-    text-shadow: 2px 2px 3px var(--min-color);
 }
 
 .BlogPage .BlogPage_Top_content .line-2{

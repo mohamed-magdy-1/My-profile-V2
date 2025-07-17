@@ -1,27 +1,13 @@
 'use client';
-import { useEffect } from 'react';
-import { usePathname } from 'next/navigation';
-import nProgress from 'nprogress';
-import 'nprogress/nprogress.css';
+import { ProgressProvider } from '@bprogress/next/app'; // أو المكتبة التي تستخدمها
 
 export default function ProgressClient() {
-  const pathname = usePathname();
-
-  useEffect(() => {
-    // إعداد nProgress مرة واحدة
-    nProgress.configure({ showSpinner: true, trickleSpeed: 200 });
-
-    nProgress.start();
-
-    const timeout = setTimeout(() => {
-      nProgress.done();
-    }, 300); // مدة تحميل وهمية يمكنك تعديلها
-
-    return () => {
-      clearTimeout(timeout);
-      nProgress.done(); // تأكيد إنهاء التحميل عند التغيير
-    };
-  }, [pathname]);
-
-  return null;
+  return (
+    <ProgressProvider
+      height="4px"
+      color="#52a9ff"
+      options={{ showSpinner: true }}
+      shallowRouting
+    />
+  );
 }

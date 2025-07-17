@@ -1,21 +1,19 @@
 "use client";
-
-import dynamic from 'next/dynamic';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import './slider.css';
 import { Pagination } from 'swiper/modules';
-import Header from '../components/header/header';
 import { useEffect, useState, useMemo } from 'react';
+import Home from '../home/home';
+import About from '../about/about';
+import Projects from '../projects/projects';
+import Blog from '../blog/blog';
+import Contact from '../contact/contact';
+import Header from '../components/header/header';
 
-const DynamicHome = dynamic(() => import('../home/home'), { ssr: false });
-const DynamicAbout = dynamic(() => import('../about/about'), { ssr: false });
-const DynamicProjects = dynamic(() => import('../projects/projects'), { ssr: false });
-const DynamicBlog = dynamic(() => import('../blog/blog'), { ssr: false });
-const DynamicContact = dynamic(() => import('../contact/contact'), { ssr: false });
 
-export default function Slider() {
+export default function Slider({ home, about, projects, blog, contact }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const textContent = ['home', 'about', 'projects', 'blog', 'contact'];
 
@@ -63,11 +61,11 @@ const handleInit = (swiper)=>{
                 modules={[Pagination]}
                 className="mySwiper"
             >
-                <SwiperSlide><DynamicHome /></SwiperSlide>
-                <SwiperSlide><DynamicAbout /></SwiperSlide>
-                <SwiperSlide><DynamicProjects /></SwiperSlide>
-                <SwiperSlide><DynamicBlog /></SwiperSlide> 
-                <SwiperSlide><DynamicContact /></SwiperSlide> 
+      <SwiperSlide><Home data={home} /></SwiperSlide>
+      <SwiperSlide><About data={about} /></SwiperSlide>
+      <SwiperSlide><Projects data={projects} /></SwiperSlide>
+       <SwiperSlide><Blog data={blog} /></SwiperSlide>
+      <SwiperSlide><Contact/></SwiperSlide>
             </Swiper>
         </>
     );

@@ -1,10 +1,9 @@
 'use client'
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import GlobalApi from "../_utils/GlobalApi"
 
 import './contact.css'
-import Link from "next/link"
-import Image from "next/image"
+
 import Loading2 from "../components/loading-2/loading-2"
 
 export default function Contact() {
@@ -50,40 +49,10 @@ const handleSubmit = async (e) => {
 
 
 
-// const [data,setData] = useState(null)
-
-// useEffect(()=>{
-//     try{
-//         async function SocialMediaFunApi() {
-//             let res = await GlobalApi.SocialMediaApi()
-//             setData(res.data)
-//         }
-//         SocialMediaFunApi()
-//     }catch(err){
-//         console.log(err)
-//     }
-// },[])
-
 
 return (
     <div className="contact">
         <div className="SocialMedia">
-            {/* {
-                data?.map((item)=>(
-                    <Link key={item.id} href={item?.link || '#'}  target="_blank">
-                    {
-                    item?.SocialMediaImg[0]?.url &&
-                        <Image 
-                            src={item?.SocialMediaImg[0]?.url} 
-                            alt="Background Image" 
-                            layout="fill" 
-                            quality={75} 
-                            priority  
-                        />
-                    }
-                    </Link>
-                ))
-            } */}
 
         </div>
         <form onSubmit={handleSubmit}>

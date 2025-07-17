@@ -1,25 +1,10 @@
-'use client'
-import GlobalApi from '@/app/_utils/GlobalApi';
-import { useEffect, useState } from 'react'
 
-export default function BackgroundVideos() {
-  const [data, setData] = useState(null);
+import { fetchBackgroundVideos } from '@/app/lib/fetchBackgroundVideos';
+
+export default async function BackgroundVideos() {
 
 
-    useEffect(()=>{
-        try{
-            async function HomeFunApi() {
-                let res = await GlobalApi.BackgroundVideosApi()
-                setData(res.data)
-                
-            }
-            HomeFunApi()
-        }catch(err){
-            console.log(err)
-        }
-    },[])
-
-
+const data = await fetchBackgroundVideos();
 
 
 

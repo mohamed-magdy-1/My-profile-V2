@@ -1,32 +1,12 @@
-"use client"
-import { useEffect, useState } from "react"
-import GlobalApi from "../_utils/GlobalApi"
+
 import './home.css'
 import Image from "next/image"
 
 
-export default function  Home() {
-
-
-const [data,setData] = useState(null)
-
-
-    useEffect(()=>{
-        try{
-            async function HomeFunApi() {
-                let res = await GlobalApi.HomeApi()
-                setData(res.data)
-                
-            }
-            HomeFunApi()
-        }catch(err){
-            console.log(err)
-        }
-    },[])
+export default function  Home({ data }) {
 
 
 
-    
 
 
 

@@ -1,15 +1,24 @@
+import Slider from '../app/slider/slider';
+import { fetchHome } from './lib/fetchHome';
+import { fetchAbout } from './lib/fetchAbout';
+import { fetchProjects } from './lib/fetchProjects';
+import { fetchBlog } from './lib/fetchBlog';
 
-import Loading from "./components/loading/loading";
-import Slider from "./slider/slider";
-
-export default function Home() {
 
 
 
+export default async function Page() {
+  const home = await fetchHome();
+  const about = await fetchAbout();
+  const projects = await fetchProjects();
+  const blog = await fetchBlog();
 
   return (
-    <div className="test-bg">
-      <Slider />
-    </div>
+    <Slider
+      home={home}
+      about={about}
+      projects={projects}
+      blog={blog}
+    />
   );
 }

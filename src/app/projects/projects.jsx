@@ -1,39 +1,18 @@
-'use client'
-import React, { useEffect, useState  } from 'react';
+
+
 import './projects.css';
-import GlobalApi from '../_utils/GlobalApi';
+
 import Image from 'next/image';
 import { PiPlusBold } from "react-icons/pi";
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
-import { clearConfig } from 'dompurify';
 import Loading2 from '../components/loading-2/loading-2';
 import { PiArrowUpRight } from "react-icons/pi";
 import { VscEyeClosed } from "react-icons/vsc";
- const LordIconDocument = dynamic(() => import('../components/LordIcon/LordIcon').then((mod) => mod.LordIconDocument), { ssr: false });
-const LordIconGlobe = dynamic(() => import('../components/LordIcon/LordIcon').then((mod) => mod.LordIconGlobe), { ssr: false });
+import { LordIconDocument, LordIconGlobe } from '../components/LordIcon/LordIcon';
 
 
+export default function Projects({ data }) {
 
-
-export default function Projects() {
-  const [data, setData] = useState(null);
-
-
-
-  
-
-    useEffect(() => { 
-      async function fetchData() {
-        try {
-          let res = await GlobalApi.ProjectsApi();
-          setData(res.data);
-        } catch (err) {
-          console.log(err);
-        }
-    }
-    fetchData();
-  }, []);
 
 
   if(!data){

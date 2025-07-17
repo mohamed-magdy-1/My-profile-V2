@@ -1,42 +1,18 @@
-"use client";
 
-import React, { useEffect, useState } from "react";
-import GlobalApi from "../_utils/GlobalApi";
+
+
 import "./blog.css";
 import Link from "next/link";
 import Image from "next/image";
 import { PiPlusBold } from "react-icons/pi";
 
 import DOMPurify from "dompurify";
-import dynamic from "next/dynamic";
 import Loading2 from "../components/loading-2/loading-2";
-const LordIconDocument = dynamic(
-  () =>
-    import("../components/LordIcon/LordIcon").then(
-      (mod) => mod.LordIconDocument
-    ),
-  { ssr: false }
-);
-const LordIconGlobe = dynamic(
-  () =>
-    import("../components/LordIcon/LordIcon").then((mod) => mod.LordIconGlobe),
-  { ssr: false }
-);
+import { LordIconDocument, LordIconGlobe } from '../components/LordIcon/LordIcon';
 
-const Blog = () => {
-  const [data, setData] = useState(null);
 
-  useEffect(() => {
-    async function BlogFunApi() {
-      try {
-        let res = await GlobalApi.BlogApi();
-        setData(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    BlogFunApi();
-  }, []);
+
+const Blog = ({ data }) => {
 
   return (
     <>

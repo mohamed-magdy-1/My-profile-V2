@@ -16,26 +16,11 @@ import HexGrid from '../components/test/HexGrid';
 
 
 
-export default function About() {
+export default function About({ data }) {
 
 
 const [open,setOpen] = useState(false)
 const [imgIndex,setImgIndex] = useState(0)
-
-const [data,setData] = useState(null)
-
-    useEffect(()=>{
-        try{
-            async function AboutFunApi() {
-                let res = await GlobalApi.AboutApi()
-                setData(res.data)
-            }
-            AboutFunApi()
-        }catch(err){
-            console.log(err)
-        }
-    },[])
-
 
 
 
