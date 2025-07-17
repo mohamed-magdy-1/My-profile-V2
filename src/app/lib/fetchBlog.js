@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
 export async function fetchBlog() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blogs?populate=*&sort=createdAt:desc&pagination[page]=1&pagination[pageSize]=4`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs?populate=*&sort=createdAt:desc&pagination[page]=1&pagination[pageSize]=4`, {
   headers: {
     Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
   },

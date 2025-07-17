@@ -7,48 +7,56 @@ import "./blogPage.css";
 import Link from "next/link";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import DOMPurify from 'dompurify';
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
-const LordIconDocument = dynamic(() => import('../../components/LordIcon/LordIcon').then((mod) => mod.LordIconDocument), { ssr: false });
-const LordIconGlobe = dynamic(() => import('../../components/LordIcon/LordIcon').then((mod) => mod.LordIconGlobe), { ssr: false });
+const LordIconDocument = dynamic(
+  () =>
+    import("../../components/LordIcon/LordIcon").then(
+      (mod) => mod.LordIconDocument
+    ),
+  { ssr: false }
+);
+const LordIconGlobe = dynamic(
+  () =>
+    import("../../components/LordIcon/LordIcon").then(
+      (mod) => mod.LordIconGlobe
+    ),
+  { ssr: false }
+);
 
 export default function BlogPage() {
-  let { blogPage } = useParams();
-
-
-
-
+  const { blogPage } = useParams();
   const [data, setData] = useState(null);
+  const [dataResent, setDataResent] = useState(null);
+  const [safeHtml, setSafeHtml] = useState("");
 
   useEffect(() => {
-    try {
-      async function BlogPageFunApi() {
-        let res = await GlobalApi.BlogPageApi(blogPage);
+    async function fetchData() {
+      try {
+        const res = await GlobalApi.BlogPageApi(blogPage);
         setData(res.data);
+
+        const DOMPurify = (await import("dompurify")).default;
+        const clean = DOMPurify.sanitize(res.data?.content || "");
+        setSafeHtml(clean);
+      } catch (err) {
+        console.log(err);
       }
-      BlogPageFunApi();
-    } catch (err) {
-      console.log(err);
     }
+    if (blogPage) fetchData();
   }, [blogPage]);
 
-  const [dataResent, setDataResent] = useState(null);
-
   useEffect(() => {
-    try {
-      async function ResentFunApi() {
-        let res = await GlobalApi.ResentAddBlogApi();
+    async function fetchResent() {
+      try {
+        const res = await GlobalApi.ResentAddBlogApi();
         setDataResent(res.data);
+      } catch (err) {
+        console.log(err);
       }
-      ResentFunApi();
-    } catch (err) {
-      console.log(err);
     }
+    fetchResent();
   }, []);
-
-
-
 
   return (
     <>
@@ -64,7 +72,7 @@ export default function BlogPage() {
                 target="_blank"
                 className="wap"
               >
-              <LordIconGlobe/>
+                <LordIconGlobe />
                 SEE
               </Link>
             )}
@@ -76,29 +84,35 @@ export default function BlogPage() {
           </div>
         </div>
         <div className="BlogPage_Image">
-            <Image
-              className="img-1"
-              src={data?.cover?.url ? data?.cover?.url : "/default-image.jpg"}
-              alt="BlogPage Image"
-              width={400}
-              height={300}
-              priority
-            />
+          <Image
+            className="img-1"
+            src={data?.cover?.url || "/default-image.jpg"}
+            alt="BlogPage Image"
+            width={400}
+            height={300}
+            priority
+          />
         </div>
-        <div
-          className="BlogPage_Content_blog"
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(data?.content)  }}
-        />
+
+        {/* ✅ safe HTML injected only after sanitizing in client */}
+        {safeHtml && (
+          <div
+            className="BlogPage_Content_blog"
+            dangerouslySetInnerHTML={{ __html: safeHtml }}
+          />
+        )}
       </div>
+
       <div className="resent-blog">
         <div className="top-part">
           <h1 className="title">you can also read the new blogs</h1>
 
           <Link href={`/blog/allBlogs`} className="blog">
-          <LordIconDocument/>
+            <LordIconDocument />
             AllBlogs
           </Link>
         </div>
+
         <div className="card">
           <span className="right"></span>
           <div className="box">
@@ -111,18 +125,16 @@ export default function BlogPage() {
                 <div className="card-img-pj">
                   <Image
                     className="img-1"
-                    src={ item?.cover?.url ? item?.cover?.url : "/default-image.jpg"}
+                    src={item?.cover?.url || "/default-image.jpg"}
                     alt="Background Image"
                     layout="fill"
                     quality={75}
                     priority
                   />
-                <div className="name-card" key={item.id}>
-                  {item.title}
+                  <div className="name-card" key={item.id}>
+                    {item.title}
+                  </div>
                 </div>
-                </div>
-
-
               </Link>
             ))}
           </div>
