@@ -114,6 +114,15 @@ a {
   .hello {
     width: 95px !important;
   }
+  
+.black_hole{
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  top: -300px;
+  mix-blend-mode: lighten;
+}
+
 }
 
 

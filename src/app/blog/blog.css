@@ -335,6 +335,13 @@ height: 45px !important;
         -webkit-line-clamp: 5; 
         
     }
+        .allBlog .blog-card .title .blog-date{
+        font-size: 10px !important;
+    }
+    .allBlog .blog-card .title h2 {
+        width: 70% !important;
+        font-size: 20px !important;
+    }
     
 }
 
@@ -342,6 +349,7 @@ height: 45px !important;
 @media (max-width:640px) {
     .allBlog {
         padding-top: 65px;
+        padding-bottom: 65px;
     }
     .allBlog .blog-card .blog-img{
         position: absolute;
