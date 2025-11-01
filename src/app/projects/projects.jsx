@@ -13,7 +13,7 @@ import { LordIconDocument, LordIconGlobe } from '../components/LordIcon/LordIcon
 
 export default function Projects({ data }) {
 
-
+console.log(data);
 
   if(!data){
     return <Loading2/>
